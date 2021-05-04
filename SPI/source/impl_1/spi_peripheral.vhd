@@ -21,7 +21,6 @@ architecture synth of peripheral is
     signal controller_clk_last_last	: std_logic := '0';
     signal read_spi					: std_logic;
     
-    -- signal byte_shiftreg			: std_logic_vector(7 downto 0) := 8d"0";
     signal image_shiftreg			: std_logic_vector(127 downto 0) := 128d"0";
     signal bit_counter				: unsigned (3 downto 0) := 4d"0";
     signal byte_counter				: unsigned (4 downto 0) := 5d"0";
@@ -42,12 +41,11 @@ architecture synth of peripheral is
 
 begin
     read_spi	<= controller_clk_last and (not controller_clk_last_last); -- clock crossing SPI edge detection
-    --led_array	<= byte_shiftreg;
+    led_array <= image_shiftreg(127 downto 120);
 	led			<= '1' when (s = WRITE) else '0';
 
     process (clk) begin
         if (reset = '1') then
-            -- byte_shiftreg	<= 8d"0";
             image_shiftreg  <= 128d"0";
             bit_counter		<= 4d"0";
             byte_counter	<= 5d"0";
@@ -57,36 +55,30 @@ begin
 
             if (cs = '0') then
                 if (read_spi = '1') then
-                    bit_counter				<= bit_counter + 1;
-                    
-                    image_shiftreg(127 downto 1)    <= image_shiftreg(126 downto 0);
-                    image_shiftreg(0)               <= COPI;
-
-                    -- just for show --                    
-                    led_array(7 downto 1)	<= led_array (6 downto 0);
-                    led_array(0) 			<= COPI;
-                    -- just for show --                    
+                    bit_counter						<= bit_counter + 1;                 
 
                     case s is
                         when READ =>
+							image_shiftreg(126 downto 0)	<= image_shiftreg(127 downto 1);
+							image_shiftreg(127)             <= COPI;
+							
                             if (bit_counter = "0111") then -- read 8 bits
                                 byte_counter	<= byte_counter + 1;
                             end if;	
 
-							CIPO <= COPI;
+							CIPO <= '1'; -- 1 is recieved. i guess
 						when WRITE =>
                             if (bit_counter = "0111") then -- read 8 bits
                                 byte_counter	<= byte_counter - 1;
                             end if;
 							
-							CIPO	<= '1';
+							CIPO	<= image_shiftreg((128 - (8 * (to_integer(byte_counter)))) + to_integer(bit_counter));
 						when others =>
 							CIPO <= '0';
                     end case;
                 end if;
             else
                 bit_counter <= 4d"0";
-				-- byte_shiftreg	<= 8d"0";
             end if;
 
             case s is
@@ -95,7 +87,7 @@ begin
                     s <= READ;
                 when READ =>
                     data_ready <= '0';
-                    if (byte_counter = "10000") then -- this is casuing problems
+                    if (byte_counter = "10000") then
                         s <= WRITE;
                     end if;
                 when WRITE =>

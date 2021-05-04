@@ -43,13 +43,13 @@ Bitstream generation complete!
 
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 102 MB
+Peak Memory Usage: 104 MB
 
 
 ibisgen "SPI_impl_1.udb" "C:/lscc/radiant/2.2/cae_library/ibis/iCE40UP.ibs"
 IBIS Models Generator: Lattice Radiant Software (64-bit) 2.2.1.239.2
 
-Tue May  4 17:02:30 2021
+Tue May  4 17:29:05 2021
 
 Loading SPI_impl_1.udb ...
 Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/2.2/ispfpga.
@@ -100,4 +100,4 @@ Writing SDF timing to file SPI_impl_1_vo.sdf
 Backanno finished with 0 posted error messages.
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 80 MB
+Peak Memory Usage: 84 MB
