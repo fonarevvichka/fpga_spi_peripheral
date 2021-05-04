@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BuildStatus>
     <Strategy name="Strategy1">
-        <Milestone name="Export" build_result="2" build_time="1620155998">
-            <Task name="Bitgen" build_result="2" update_result="0" update_time="1620155998"/>
-            <Task name="IBIS" build_result="2" update_result="0" update_time="1620155998"/>
-            <Task name="TimingSimFileVlg" build_result="2" update_result="0" update_time="1620155998"/>
+        <Milestone name="Export" build_result="2" build_time="1620158631">
+            <Task name="Bitgen" build_result="2" update_result="0" update_time="1620158631"/>
+            <Task name="IBIS" build_result="2" update_result="0" update_time="1620158631"/>
+            <Task name="TimingSimFileVlg" build_result="2" update_result="0" update_time="1620158632"/>
         </Milestone>
-        <Milestone name="Map" build_result="2" build_time="1620155991">
-            <Task name="Map" build_result="2" update_result="0" update_time="1620155991"/>
-            <Task name="MapTrace" build_result="2" update_result="0" update_time="1620155992"/>
+        <Milestone name="Map" build_result="2" build_time="1620158622">
+            <Task name="Map" build_result="2" update_result="0" update_time="1620158622"/>
+            <Task name="MapTrace" build_result="2" update_result="0" update_time="1620158623"/>
         </Milestone>
-        <Milestone name="PAR" build_result="2" build_time="1620155996">
-            <Task name="PAR" build_result="2" update_result="0" update_time="1620155996"/>
-            <Task name="PARTrace" build_result="2" update_result="0" update_time="1620155997"/>
+        <Milestone name="PAR" build_result="2" build_time="1620158629">
+            <Task name="PAR" build_result="2" update_result="0" update_time="1620158629"/>
+            <Task name="PARTrace" build_result="2" update_result="0" update_time="1620158630"/>
             <Task name="IOTiming" build_result="0" update_result="2" update_time="1619879963"/>
         </Milestone>
-        <Milestone name="Synthesis" build_result="2" build_time="1620155990">
-            <Task name="Lattice_Synthesis" build_result="2" update_result="0" update_time="1620155990"/>
-            <Task name="LSE_Compile" build_result="2" update_result="0" update_time="1620155990"/>
-            <Task name="SynTrace" build_result="2" update_result="0" update_time="1620155990"/>
-            <Task name="SynVerilogSimFile" build_result="0" update_result="2" update_time="1620143867"/>
+        <Milestone name="Synthesis" build_result="2" build_time="1620158621">
+            <Task name="Lattice_Synthesis" build_result="2" update_result="0" update_time="1620158621"/>
+            <Task name="LSE_Compile" build_result="2" update_result="0" update_time="1620158621"/>
+            <Task name="SynTrace" build_result="2" update_result="0" update_time="1620158621"/>
+            <Task name="SynVerilogSimFile" build_result="0" update_result="2" update_time="1620156253"/>
         </Milestone>
         <Milestone name="TOOL_Report" build_result="0" build_time="0">
             <Task name="HDLE" build_result="0" update_result="2" update_time="1619995603"/>
@@ -28,19 +28,19 @@
             <Task name="PIODRC" build_result="0" update_result="2" update_time="1619995603"/>
             <Task name="DEC" build_result="0" update_result="2" update_time="1619995603"/>
         </Milestone>
-        <Report name="IBIS/SPI_impl_1.ibs" last_build_time="1620155998" last_build_size="54527"/>
-        <Report name="SPI_impl_1.bgn" last_build_time="1620155998" last_build_size="986"/>
-        <Report name="SPI_impl_1.bin" last_build_time="1620155998" last_build_size="104156"/>
+        <Report name="IBIS/SPI_impl_1.ibs" last_build_time="1620158631" last_build_size="54584"/>
+        <Report name="SPI_impl_1.bgn" last_build_time="1620158631" last_build_size="1002"/>
+        <Report name="SPI_impl_1.bin" last_build_time="1620158631" last_build_size="104156"/>
         <Report name="SPI_impl_1.lsedata" last_build_time="0" last_build_size="0"/>
-        <Report name="SPI_impl_1.tw1.html" last_build_time="1620155992" last_build_size="126963"/>
-        <Report name="SPI_impl_1.twr.html" last_build_time="1620155997" last_build_size="124984"/>
-        <Report name="SPI_impl_1.tws.html" last_build_time="1620155990" last_build_size="129088"/>
-        <Report name="SPI_impl_1.udb" last_build_time="1620155996" last_build_size="7002"/>
-        <Report name="SPI_impl_1_map.udb" last_build_time="1620155991" last_build_size="4894"/>
-        <Report name="SPI_impl_1_rtl.udb" last_build_time="1620155990" last_build_size="3081"/>
-        <Report name="SPI_impl_1_syn.udb" last_build_time="1620155990" last_build_size="3465"/>
-        <Report name="SPI_impl_1_vo.sdf" last_build_time="1620155998" last_build_size="24213"/>
-        <Report name="SPI_impl_1_vo.vo" last_build_time="1620155998" last_build_size="28417"/>
+        <Report name="SPI_impl_1.tw1.html" last_build_time="1620158623" last_build_size="136309"/>
+        <Report name="SPI_impl_1.twr.html" last_build_time="1620158630" last_build_size="135094"/>
+        <Report name="SPI_impl_1.tws.html" last_build_time="1620158621" last_build_size="135021"/>
+        <Report name="SPI_impl_1.udb" last_build_time="1620158629" last_build_size="9214"/>
+        <Report name="SPI_impl_1_map.udb" last_build_time="1620158622" last_build_size="6040"/>
+        <Report name="SPI_impl_1_rtl.udb" last_build_time="1620158621" last_build_size="4239"/>
+        <Report name="SPI_impl_1_syn.udb" last_build_time="1620158621" last_build_size="4302"/>
+        <Report name="SPI_impl_1_vo.sdf" last_build_time="1620158632" last_build_size="32990"/>
+        <Report name="SPI_impl_1_vo.vo" last_build_time="1620158632" last_build_size="37411"/>
     </Strategy>
 </BuildStatus>
-                    
+          

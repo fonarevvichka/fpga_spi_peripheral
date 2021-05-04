@@ -1,3 +1,18 @@
 DRC: Design Rule Check Radiant Software (64-bit) 2.2.1.239.2
-Tue May  4 14:12:40 2021
+Tue May  4 15:50:15 2021
 
+WARNING - Top module port 'led_array[7]' does not connect to anything.
+WARNING - Top module port 'led_array[6]' does not connect to anything.
+WARNING - Top module port 'led_array[5]' does not connect to anything.
+WARNING - Top module port 'led_array[4]' does not connect to anything.
+WARNING - Top module port 'led_array[3]' does not connect to anything.
+WARNING - Top module port 'led_array[2]' does not connect to anything.
+WARNING - Top module port 'led_array[1]' does not connect to anything.
+WARNING - Top module port 'led_array[0]' does not connect to anything.
+WARNING - Top module port 'reset' does not connect to anything.
+WARNING - Top module port 'controller_clk' does not connect to anything.
+WARNING - Top module port 'COPI' does not connect to anything.
+WARNING - Top module port 'CS' does not connect to anything.
+WARNING - Top module port 'CIPO' does not connect to anything.
+WARNING - Top module port 'led' does not connect to anything.
+WARNING - Top module port 'data_ready' does not connect to anything.

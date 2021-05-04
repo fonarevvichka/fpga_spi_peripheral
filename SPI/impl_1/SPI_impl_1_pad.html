@@ -48,7 +48,7 @@ Performance Grade:      High-Performance_1.2V
 PACKAGE:          SG48
 Package Status:                     Preliminary    Version 1.5
 
-Tue May  4 15:19:55 2021
+Tue May  4 16:03:47 2021
 
 Pinout by Port Name:
 +----------------+----------+--------------+-------+--------------------+
@@ -59,6 +59,7 @@ Pinout by Port Name:
 | CS             | 45/2     | LVCMOS33_IN  | PL8B  | PULL:100K          |
 | controller_clk | 2/2      | LVCMOS33_IN  | PL9A  | PULL:100K          |
 | data_ready     | 12/1     | LVCMOS33_OUT | PL19A | DRIVE:8mA PULL:NA  |
+| led            | 10/1     | LVCMOS33_OUT | PL17A | DRIVE:8mA PULL:NA  |
 | led_array[0]   | 4/2      | LVCMOS33_OUT | PL10A | DRIVE:8mA PULL:NA  |
 | led_array[1]   | 44/2     | LVCMOS33_OUT | PL7B  | DRIVE:8mA PULL:NA  |
 | led_array[2]   | 6/1      | LVCMOS33_OUT | PL14B | DRIVE:8mA PULL:NA  |
@@ -87,7 +88,7 @@ Vccio by Bank:
 | 4/2      | led_array[0]        | LOCATED    | LVCMOS33_OUT | PL10A |                  |
 | 6/1      | led_array[2]        | LOCATED    | LVCMOS33_OUT | PL14B |                  |
 | 9/1      | led_array[3]        | LOCATED    | LVCMOS33_OUT | PL16A |                  |
-| 10/1     |     unused, PULL:UP |            |              | PL17A |                  |
+| 10/1     | led                 | LOCATED    | LVCMOS33_OUT | PL17A |                  |
 | 11/1     | led_array[4]        | LOCATED    | LVCMOS33_OUT | PL18A |                  |
 | 12/1     | data_ready          | LOCATED    | LVCMOS33_OUT | PL19A |                  |
 | 13/1     | led_array[7]        | LOCATED    | LVCMOS33_OUT | PL20A |                  |
@@ -148,6 +149,7 @@ ldc_set_location -site {47} [ get_ports {COPI} ]
 ldc_set_location -site {45} [ get_ports {CS} ]
 ldc_set_location -site {2} [ get_ports {controller_clk} ]
 ldc_set_location -site {12} [ get_ports {data_ready} ]
+ldc_set_location -site {10} [ get_ports {led} ]
 ldc_set_location -site {4} [ get_ports {led_array[0]} ]
 ldc_set_location -site {44} [ get_ports {led_array[1]} ]
 ldc_set_location -site {6} [ get_ports {led_array[2]} ]
@@ -163,7 +165,7 @@ ldc_set_location -site {48} [ get_ports {reset} ]
 
 
 Copyright 2015 Lattice Semiconductor Corporation, All Rights Reserved
-Tue May  4 15:19:55 2021
+Tue May  4 16:03:47 2021
 
 
 

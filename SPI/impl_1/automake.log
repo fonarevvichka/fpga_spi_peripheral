@@ -38,7 +38,7 @@ Preference Summary:
 
 
 Creating bit map...
-Saving bit stream in "C:\Users\fonar\Documents\CS Remote\es4\SPI\SPI\impl_1\SPI_impl_1.bin".
+Saving bit stream in "C:\Users\fonar\Documents\CS Remote\es4\fpga_spi_peripheral\SPI\impl_1\SPI_impl_1.bin".
 Bitstream generation complete!
 
 Total CPU Time: 0 secs 
@@ -49,7 +49,7 @@ Peak Memory Usage: 101 MB
 ibisgen "SPI_impl_1.udb" "C:/lscc/radiant/2.2/cae_library/ibis/iCE40UP.ibs"
 IBIS Models Generator: Lattice Radiant Software (64-bit) 2.2.1.239.2
 
-Tue May  4 15:19:58 2021
+Tue May  4 16:03:51 2021
 
 Loading SPI_impl_1.udb ...
 Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/2.2/ispfpga.
@@ -68,7 +68,7 @@ Successfully loading udb from disks and to up-layer in CPU time: 0 secs , REAL t
 Created design models.
 
 
-Generating: C:\Users\fonar\Documents\CS Remote\es4\SPI\SPI\impl_1\IBIS\SPI_impl_1.ibs
+Generating: C:\Users\fonar\Documents\CS Remote\es4\fpga_spi_peripheral\SPI\impl_1\IBIS\SPI_impl_1.ibs
 
 
     <postMsg mid="1191031" type="Info" dynamic="0" navigation="0"  />

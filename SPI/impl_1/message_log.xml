@@ -286,40 +286,29 @@
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/ramdp.vhd(7): </Dynamic>
-            <Dynamic>ramdp</Dynamic>
-            <Navigation>c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/ramdp.vhd</Navigation>
-            <Navigation>7</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/ramdp.vhd(18): </Dynamic>
-            <Dynamic>synth</Dynamic>
-            <Navigation>c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/ramdp.vhd</Navigation>
-            <Navigation>18</Navigation>
-        </Message>
-        <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/spi_peripheral.vhd(5): </Dynamic>
+            <Dynamic>c:/users/fonar/documents/cs remote/es4/fpga_spi_peripheral/spi/source/impl_1/spi_peripheral.vhd(5): </Dynamic>
             <Dynamic>peripheral</Dynamic>
-            <Navigation>c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/spi_peripheral.vhd</Navigation>
+            <Navigation>c:/users/fonar/documents/cs remote/es4/fpga_spi_peripheral/spi/source/impl_1/spi_peripheral.vhd</Navigation>
             <Navigation>5</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/spi_peripheral.vhd(17): </Dynamic>
+            <Dynamic>c:/users/fonar/documents/cs remote/es4/fpga_spi_peripheral/spi/source/impl_1/spi_peripheral.vhd(18): </Dynamic>
             <Dynamic>synth</Dynamic>
-            <Navigation>c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/spi_peripheral.vhd</Navigation>
-            <Navigation>17</Navigation>
+            <Navigation>c:/users/fonar/documents/cs remote/es4/fpga_spi_peripheral/spi/source/impl_1/spi_peripheral.vhd</Navigation>
+            <Navigation>18</Navigation>
         </Message>
         <Message>
             <ID>35921504</ID>
             <Severity>1</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI/impl_1</Dynamic>
+            <Dynamic>C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI/impl_1</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001779</ID>
+            <Severity>16</Severity>
+            <Dynamic>s_i1</Dynamic>
         </Message>
         <Message>
             <ID>35002039</ID>

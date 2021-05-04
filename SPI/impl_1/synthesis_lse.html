@@ -48,10 +48,10 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2020 Lattice Semiconductor Corporation,  All rights reserved.
-Tue May  4 15:19:48 2021
+Tue May  4 16:03:40 2021
 
 
-Command Line:  C:\lscc\radiant\2.2\ispfpga\bin\nt64\synthesis.exe -f SPI_impl_1_lattice.synproj -gui -msgset C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI/promote.xml 
+Command Line:  C:\lscc\radiant\2.2\ispfpga\bin\nt64\synthesis.exe -f SPI_impl_1_lattice.synproj -gui -msgset C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI/promote.xml 
 
 Synthesis options:
 The -a option is iCE40UP.
@@ -110,20 +110,18 @@ ROM style = auto
 RAM style = auto
 The -comp option is FALSE.
 The -syn option is FALSE.
--sdc option: SDC file input is C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI/source/impl_1/impl_1.ldc.
+-sdc option: SDC file input is C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI/source/impl_1/impl_1.ldc.
 -vh2008
 
--path C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI (searchpath added)
--path C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI/impl_1 (searchpath added)
+-path C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI (searchpath added)
+-path C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI/impl_1 (searchpath added)
 -path C:/lscc/radiant/2.2/ispfpga/ice40tp/data (searchpath added)
 Mixed language design
 Verilog design file = C:/lscc/radiant/2.2/ip/pmi/pmi_iCE40UP.v
 VHDL library = pmi
 VHDL design file = C:/lscc/radiant/2.2/ip/pmi/pmi_iCE40UP.vhd
 VHDL library = work
-VHDL design file = C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI/source/impl_1/ramdp.vhd
-VHDL library = work
-VHDL design file = C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI/source/impl_1/spi_peripheral.vhd
+VHDL design file = C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI/source/impl_1/spi_peripheral.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
 Compile design.
 Compile Design Begin
@@ -165,17 +163,12 @@ Analyzing VHDL file c:/lscc/radiant/2.2/ip/pmi/pmi_ice40up.vhd. VHDL-1481
 Analyzing VHDL file c:/lscc/radiant/2.2/ip/pmi/pmi_ice40up.vhd
 
 INFO - synthesis: c:/lscc/radiant/2.2/ip/pmi/pmi_ice40up.vhd(4): analyzing package components. VHDL-1014
-Analyzing VHDL file c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/ramdp.vhd. VHDL-1481
-Analyzing VHDL file c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/ramdp.vhd
+Analyzing VHDL file c:/users/fonar/documents/cs remote/es4/fpga_spi_peripheral/spi/source/impl_1/spi_peripheral.vhd. VHDL-1481
+Analyzing VHDL file c:/users/fonar/documents/cs remote/es4/fpga_spi_peripheral/spi/source/impl_1/spi_peripheral.vhd
 
-INFO - synthesis: c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/ramdp.vhd(7): analyzing entity ramdp. VHDL-1012
-INFO - synthesis: c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/ramdp.vhd(18): analyzing architecture synth. VHDL-1010
-Analyzing VHDL file c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/spi_peripheral.vhd. VHDL-1481
-Analyzing VHDL file c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/spi_peripheral.vhd
-
-INFO - synthesis: c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/spi_peripheral.vhd(5): analyzing entity peripheral. VHDL-1012
-INFO - synthesis: c:/users/fonar/documents/cs remote/es4/spi/spi/source/impl_1/spi_peripheral.vhd(17): analyzing architecture synth. VHDL-1010
-INFO - synthesis: The default VHDL library search path is now "C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI/impl_1". VHDL-1504
+INFO - synthesis: c:/users/fonar/documents/cs remote/es4/fpga_spi_peripheral/spi/source/impl_1/spi_peripheral.vhd(5): analyzing entity peripheral. VHDL-1012
+INFO - synthesis: c:/users/fonar/documents/cs remote/es4/fpga_spi_peripheral/spi/source/impl_1/spi_peripheral.vhd(18): analyzing architecture synth. VHDL-1010
+INFO - synthesis: The default VHDL library search path is now "C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI/impl_1". VHDL-1504
 Top module language type = VHDL.
 unit peripheral is not yet analyzed. VHDL-1485
 Top module name (VHDL, mixed language): peripheral
@@ -206,19 +199,20 @@ Top module name (VHDL, mixed language): peripheral
 
 
 
+WARNING - synthesis: Initial value found on instance s_i1 will be ignored.
 INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
 
 
 <A name="lse_area"></A><B><U><big>Area Report</big></U></B>
 
 ################### Begin Area Report (peripheral)######################
-Number of register bits => 18 of 5280 (0 % )
-FD1P3XZ => 18
+Number of register bits => 21 of 5280 (0 % )
+FD1P3XZ => 21
 HSOSC_CORE => 1
 IB => 4
 IOL_B => 2
-LUT4 => 24
-OB => 10
+LUT4 => 38
+OB => 11
 ################### End Area Report ##################
 Number of odd-length carry chains : 0
 Number of even-length carry chains : 0
@@ -235,22 +229,22 @@ Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
   Net : reset_c, loads : 19
-  Net : CS_c, loads : 14
-  Net : n286, loads : 12
-  Net : n145, loads : 6
-  Net : bit_counter[0], loads : 4
-  Net : n4, loads : 4
-  Net : n395, loads : 4
-  Net : controller_clk_last, loads : 3
-  Net : bit_counter[3], loads : 3
-  Net : bit_counter[1], loads : 3
+  Net : s[0], loads : 17
+  Net : CS_c, loads : 16
+  Net : n314, loads : 12
+  Net : s[1], loads : 8
+  Net : clk_enable_2, loads : 6
+  Net : byte_counter[1], loads : 5
+  Net : n318, loads : 5
+  Net : n495, loads : 5
+  Net : controller_clk_last, loads : 4
 ################### End Clock Report ##################
 
-Peak Memory Usage: 96 MB
+Peak Memory Usage: 95 MB
 
 --------------------------------------------------------------
 Total CPU Time: 1 secs 
-Total REAL Time: 2 secs 
+Total REAL Time: 0 secs 
 --------------------------------------------------------------
 
 

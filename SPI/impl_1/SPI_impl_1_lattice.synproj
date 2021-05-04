@@ -33,12 +33,11 @@
 
 -use_io_insertion 1
 -resolve_mixed_drivers 0
--sdc "C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI/source/impl_1/impl_1.ldc"
--path "C:/lscc/radiant/2.2/ispfpga/ice40tp/data" "C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI/impl_1" "C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI"
+-sdc "C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI/source/impl_1/impl_1.ldc"
+-path "C:/lscc/radiant/2.2/ispfpga/ice40tp/data" "C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI/impl_1" "C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI"
 -ver "C:/lscc/radiant/2.2/ip/pmi/pmi_iCE40UP.v"
 -lib pmi -vhd "C:/lscc/radiant/2.2/ip/pmi/pmi_iCE40UP.vhd"
--lib "work" -vhd "C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI/source/impl_1/ramdp.vhd"
-"C:/Users/fonar/Documents/CS Remote/es4/SPI/SPI/source/impl_1/spi_peripheral.vhd"
+-lib "work" -vhd "C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI/source/impl_1/spi_peripheral.vhd"
 
 
 -top peripheral

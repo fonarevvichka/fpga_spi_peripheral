@@ -5,28 +5,28 @@ Target Device:        iCE40UP5KSG48
 Target Performance:   High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2.2.1.239.2
-Mapped on: Tue May  4 15:19:51 2021
+Mapped on: Tue May  4 16:03:42 2021
 
 Design Information
 ------------------
 
 Command line:   map SPI_impl_1_syn.udb C:/Users/fonar/Documents/CS
-     Remote/es4/SPI/SPI/source/impl_1/impl_1.pdc -o SPI_impl_1_map.udb -mp
-     SPI_impl_1.mrp -hierrpt -gui
+     Remote/es4/fpga_spi_peripheral/SPI/source/impl_1/impl_1.pdc -o
+     SPI_impl_1_map.udb -mp SPI_impl_1.mrp -hierrpt -gui
 
 Design Summary
 --------------
 
-   Number of slice registers:  18 out of  5280 (<1%)
+   Number of slice registers:  21 out of  5280 (<1%)
    Number of I/O registers:      2 out of   117 (2%)
-   Number of LUT4s:            26 out of  5280 (<1%)
-      Number of logic LUT4s:              25
-      Number of inserted feedthru LUT4s:   1
+   Number of LUT4s:            41 out of  5280 (1%)
+      Number of logic LUT4s:              39
+      Number of inserted feedthru LUT4s:   2
       Number of ripple logic:              0 (0 LUT4s)
-   Number of IO sites used:   14 out of 39 (36%)
-      Number of IO sites used for general PIOs: 14
+   Number of IO sites used:   15 out of 39 (38%)
+      Number of IO sites used for general PIOs: 15
       Number of IO sites used for I3Cs: 0 out of 2 (0%)
-      Number of IO sites used for PIOs+I3Cs: 14 out of 36 (39%)
+      Number of IO sites used for PIOs+I3Cs: 15 out of 36 (42%)
       (note: If I3C is not used, its site can be used as general PIO)
       Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
    Number of DSPs:             0 out of 8 (0%)
@@ -42,24 +42,24 @@ Design Summary
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             0 out of 1 (0%)
    Number of Clocks:  1
-      Net clk: 20 loads, 20 rising, 0 falling (Driver: Pin H/CLKHF)
-   Number of Clock Enables:  5
+      Net clk: 23 loads, 23 rising, 0 falling (Driver: Pin H/CLKHF)
+   Number of Clock Enables:  6
       Net VCC_net: 1 loads, 0 SLICEs
-      Net n286: 11 loads, 11 SLICEs
       Net clk_enable_1: 2 loads, 1 SLICEs
-      Net n145: 5 loads, 5 SLICEs
+      Net n495: 5 loads, 5 SLICEs
+      Net n314: 11 loads, 11 SLICEs
       Net clk_enable_2: 1 loads, 0 SLICEs
-   Number of LSRs:  1
+      Net n480: 1 loads, 1 SLICEs
+   Number of LSRs:  2
       Pin reset: 17 loads, 17 SLICEs (Net: reset_c)
+      Net n481: 1 loads, 1 SLICEs
    Top 10 highest fanout non-clock nets:
       Net reset_c: 19 loads
-      Net CS_c: 15 loads
-      Net n286: 11 loads
-      Net bit_counter[3]: 5 loads
-      Net controller_clk_last: 5 loads
-      Net n145: 5 loads
-      Net n440: 5 loads
-      Net controller_clk_last_last: 4 loads
+      Net s[0]: 17 loads
+      Net CS_c: 16 loads
+      Net n314: 11 loads
+      Net s[1]: 8 loads
+      Net clk_enable_2: 7 loads
 
                                     Page 1
 
@@ -69,8 +69,10 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-      Net n4: 4 loads
-      Net n5: 4 loads
+      Net byte_counter[1]: 5 loads
+      Net controller_clk_last: 5 loads
+      Net n318: 5 loads
+      Net n495: 5 loads
 
 
 
@@ -90,13 +92,13 @@ IO (PIO) Attributes
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| led_array[7]        | OUTPUT    | LVCMOS33  |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| led_array[6]        | OUTPUT    | LVCMOS33  |       |       |           |
+| led_array[4]        | OUTPUT    | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | led_array[5]        | OUTPUT    | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| led_array[4]        | OUTPUT    | LVCMOS33  |       |       |           |
+| led_array[7]        | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| led_array[6]        | OUTPUT    | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | led_array[3]        | OUTPUT    | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -106,9 +108,11 @@ IO (PIO) Attributes
 +---------------------+-----------+-----------+-------+-------+-----------+
 | led_array[0]        | OUTPUT    | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| CIPO                | OUTPUT    | LVCMOS33  | O     |       |           |
+| CIPO                | OUTPUT    | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| data_ready          | OUTPUT    | LVCMOS33  |       |       |           |
+| led                 | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| data_ready          | OUTPUT    | LVCMOS33  | O     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | reset               | INPUT     | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -119,10 +123,6 @@ IO (PIO) Attributes
 | CS                  | INPUT     | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
-Removed logic
--------------
-
-Block i338 was optimized away.
 
 
 
@@ -132,6 +132,11 @@ Block i338 was optimized away.
 
 
 
+
+Removed logic
+-------------
+
+Block i767 was optimized away.
 
 OSC Summary
 -----------
@@ -150,7 +155,7 @@ Instance Name: controller_clk_last_c
          Type: IOLOGIC
 Instance Name: H
          Type: HFOSC
-Instance Name: CIPO_i0
+Instance Name: data_ready_i1
          Type: IOLOGIC
 
 Run Time and Memory Usage
@@ -159,11 +164,6 @@ Run Time and Memory Usage
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
    Peak Memory Usage: 50 MB
-
-
-
-
-
 
 
 

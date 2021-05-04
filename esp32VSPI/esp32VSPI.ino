@@ -27,11 +27,20 @@ void loop() {
     vspi.endTransaction();
   }
   delay(500);
-  digitalWrite(22, HIGH);
 
-//  while(digitalRead(dataReadyPin) == LOW) {
-//    delay(10);
-//  }
-//  
-//  Serial.println("recieved signal");
+  while(digitalRead(dataReadyPin) == LOW) {
+    delay(10);
+  }
+  
+  Serial.println("recieved signal");
+  for (byte i = 0; i < 16; i++) {
+    vspi.beginTransaction(settings);
+    digitalWrite(5, LOW);
+    Serial.println(i);
+    Serial.print("response: "); Serial.println(vspi.transfer(0));
+    delay(500);
+    digitalWrite(5, HIGH);  
+    vspi.endTransaction();
+  }
+  digitalWrite(22, HIGH);
 }

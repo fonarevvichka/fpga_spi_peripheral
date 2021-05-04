@@ -1,13 +1,13 @@
 ----------------------------------------------------------------------
 Report for cell peripheral.TECH
-Register bits:  18 of 5280 (0.341%)
-I/O cells:      14
+Register bits:  21 of 5280 (0.398%)
+I/O cells:      15
                                   Cell usage:
                                cell     count   Res Usage(%)
-                            FD1P3XZ        18          100.0
+                            FD1P3XZ        21          100.0
                          HSOSC_CORE         1          100.0
                                  IB         4          100.0
                               IOL_B         2          100.0
-                               LUT4        24          100.0
-                                 OB        10          100.0
-                              TOTAL        59
+                               LUT4        38          100.0
+                                 OB        11          100.0
+                              TOTAL        77
