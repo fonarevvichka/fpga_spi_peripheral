@@ -14,10 +14,6 @@ Family:  iCE40UP
 Device:  iCE40UP5K
 Package: SG48
 Performance Grade:   High-Performance_1.2V
-WARNING - bitgen: Unable to find the instance/port 'COPI' in the constraint 'ldc_set_location -site {47} [get_ports COPI]'
-
-WARNING - bitgen: In the constraint 'ldc_set_location -site {47} [get_ports COPI]', the locate object is not specified
-
 Successfully loading udb from disks and to up-layer in CPU time: 0 secs , REAL time: 0 secs 
 
 
@@ -47,13 +43,13 @@ Bitstream generation complete!
 
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 101 MB
+Peak Memory Usage: 102 MB
 
 
 ibisgen "SPI_impl_1.udb" "C:/lscc/radiant/2.2/cae_library/ibis/iCE40UP.ibs"
 IBIS Models Generator: Lattice Radiant Software (64-bit) 2.2.1.239.2
 
-Tue May  4 16:43:26 2021
+Tue May  4 17:02:30 2021
 
 Loading SPI_impl_1.udb ...
 Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/2.2/ispfpga.
@@ -67,8 +63,6 @@ Family:  iCE40UP
 Device:  iCE40UP5K
 Package: SG48
 Performance Grade:   High-Performance_1.2V
-    <postMsg mid="77001032" type="Warning" dynamic="2" navigation="0" arg0="COPI" arg1="ldc_set_location -site {47} [get_ports COPI]"  />
-    <postMsg mid="77001031" type="Warning" dynamic="1" navigation="0" arg0="ldc_set_location -site {47} [get_ports COPI]"  />
 Successfully loading udb from disks and to up-layer in CPU time: 0 secs , REAL time: 0 secs 
 
 Created design models.
@@ -99,8 +93,6 @@ Family:  iCE40UP
 Device:  iCE40UP5K
 Package: SG48
 Performance Grade:   High-Performance_1.2V
-    <postMsg mid="77001032" type="Warning" dynamic="2" navigation="0" arg0="COPI" arg1="ldc_set_location -site {47} [get_ports COPI]"  />
-    <postMsg mid="77001031" type="Warning" dynamic="1" navigation="0" arg0="ldc_set_location -site {47} [get_ports COPI]"  />
 Writing a verilog netlist based on the SPI_impl_1 design file.
 
 Writing Verilog netlist to file SPI_impl_1_vo.vo
@@ -108,4 +100,4 @@ Writing SDF timing to file SPI_impl_1_vo.sdf
 Backanno finished with 0 posted error messages.
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 79 MB
+Peak Memory Usage: 80 MB

@@ -1,6 +1,6 @@
 Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2.2.1.239.2
 
-Tue May  4 16:43:16 2021
+Tue May  4 17:02:23 2021
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -86,7 +86,7 @@ Clock Domain Crossing
 
 3.1.1  Constraint Coverage
 ---------------------------
-Constraint Coverage: 78.7671%
+Constraint Coverage: 74.1935%
 
 3.1.2  Timing Errors
 ---------------------
@@ -102,16 +102,16 @@ Total Negative Slack: 0.000 ns (setup), 0.000 ns (hold)
 -------------------------------------------------------
           Listing 10 End Points          |    Slack    
 -------------------------------------------------------
-s_i0/D                                   |    4.794 ns 
-byte_counter__i5/D                       |    6.203 ns 
-s_i1/D                                   |    7.346 ns 
-byte_counter__i3/D                       |    8.755 ns 
-byte_counter__i4/D                       |    8.755 ns 
-byte_counter__i1/D                       |    9.898 ns 
-byte_counter__i2/D                       |    9.898 ns 
+byte_counter_i0_i4/D                     |    8.755 ns 
+byte_counter_i0_i3/D                     |    8.755 ns 
+s_i0/D                                   |   11.307 ns 
+byte_counter_i0_i2/D                     |   11.307 ns 
+s_i1/D                                   |   11.307 ns 
 CIPO_i0/SR                               |   12.146 ns 
+led_array_i0_i2/SP                       |   12.450 ns 
+CIPO_i0/SP                               |   12.450 ns 
 bit_counter__i0/D                        |   12.450 ns 
-byte_counter__i2/SP                      |   12.450 ns 
+byte_counter_i0_i0/SP                    |   12.450 ns 
 -------------------------------------------------------
                                          |             
 Setup # of endpoints with negative slack:|           0 
@@ -124,16 +124,16 @@ Setup # of endpoints with negative slack:|           0
 -------------------------------------------------------
           Listing 10 End Points          |    Slack    
 -------------------------------------------------------
-CIPO_i0/D                                |    1.671 ns 
+led_array_i0_i7/D                        |    1.671 ns 
+led_array_i0_i6/D                        |    1.671 ns 
+led_array_i0_i5/D                        |    1.671 ns 
+led_array_i0_i4/D                        |    1.671 ns 
+led_array_i0_i3/D                        |    1.671 ns 
+led_array_i0_i2/D                        |    1.671 ns 
 data_ready_i1/DO0                        |    1.671 ns 
+led_array_i0_i8/DO0                      |    1.671 ns 
 controller_clk_last_last_c/D             |    2.958 ns 
-bit_counter__i2/SP                       |    4.196 ns 
-bit_counter__i2/D                        |    4.196 ns 
-bit_counter__i0/D                        |    4.196 ns 
-bit_counter__i3/SP                       |    4.196 ns 
 bit_counter__i3/D                        |    4.196 ns 
-byte_counter__i2/SP                      |    4.196 ns 
-byte_counter__i2/D                       |    4.196 ns 
 -------------------------------------------------------
                                          |             
 Hold # of endpoints with negative slack: |           0 
@@ -148,14 +148,15 @@ Hold # of endpoints with negative slack: |           0
 
 Clocked but unconstrained timing start points
 -------------------------------------------------------------------
-         Listing 2 Start Points         |           Type           
+         Listing 3 Start Points         |           Type           
 -------------------------------------------------------------------
-data_ready_i1/PADDO                     |          No required time
 CIPO_i0/Q                               |          No required time
+led_array_i0_i8/PADDO                   |          No required time
+data_ready_i1/PADDO                     |          No required time
 -------------------------------------------------------------------
                                         |                          
 Number of unconstrained timing start po |                          
-ints                                    |                         2
+ints                                    |                         3
                                         |                          
 -------------------------------------------------------------------
 
@@ -163,20 +164,20 @@ Clocked but unconstrained timing end points
 -------------------------------------------------------------------
          Listing 10 End Points          |           Type           
 -------------------------------------------------------------------
-controller_clk_last_c/PADDI             |           No arrival time
-controller_clk_last_c/CE                |           No arrival time
-byte_counter__i2/SR                     |           No arrival time
 bit_counter__i3/SR                      |           No arrival time
-bit_counter__i0/SR                      |           No arrival time
+byte_counter_i0_i0/SR                   |           No arrival time
 bit_counter__i2/SR                      |           No arrival time
 bit_counter__i1/SR                      |           No arrival time
-byte_counter__i1/SR                     |           No arrival time
-byte_counter__i5/SR                     |           No arrival time
-byte_counter__i4/SR                     |           No arrival time
+bit_counter__i0/SR                      |           No arrival time
+controller_clk_last_last_c/SP           |           No arrival time
+controller_clk_last_c/PADDI             |           No arrival time
+controller_clk_last_c/CE                |           No arrival time
+data_ready_i1/CE                        |           No arrival time
+byte_counter_i0_i1/SR                   |           No arrival time
 -------------------------------------------------------------------
                                         |                          
 Number of unconstrained timing end poin |                          
-ts                                      |                        12
+ts                                      |                        14
                                         |                          
 -------------------------------------------------------------------
 
@@ -194,9 +195,11 @@ create_generated_clock,
 ...
 
 -------------------------------------------------------------------
-     Listing 9 Start or End Points      |           Type           
+     Listing 10 Start or End Points     |           Type           
 -------------------------------------------------------------------
-COPI                                    |                     input
+led_array[7]                            |                    output
+led_array[6]                            |                    output
+led_array[5]                            |                    output
 led_array[4]                            |                    output
 led_array[3]                            |                    output
 led_array[2]                            |                    output
@@ -204,10 +207,9 @@ led_array[1]                            |                    output
 led_array[0]                            |                    output
 CIPO                                    |                    output
 led                                     |                    output
-data_ready                              |                    output
 -------------------------------------------------------------------
                                         |                          
-Number of I/O ports without constraint  |                         9
+Number of I/O ports without constraint  |                        11
                                         |                          
 -------------------------------------------------------------------
 
@@ -237,49 +239,46 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : controller_clk_last_c/DI0  (IOL_B)
-Path End         : s_i0/D  (FD1P3XZ)
+Path Begin       : bit_counter__i2/Q  (FD1P3XZ)
+Path End         : byte_counter_i0_i4/D  (FD1P3XZ)
 Source Clock     : clk (R)
 Destination Clock: clk (R)
-Logic Level      : 6
-Delay Ratio      : 78.6% (route), 21.4% (logic)
+Logic Level      : 5
+Delay Ratio      : 72.2% (route), 27.8% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 4.794 ns  (Passed)
+Path Slack       : 8.755 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk                                                       NET DELAY      2.075         2.075  1       
 
 
 
-controller_clk_last_c/INCLK->controller_clk_last_c/DI0
-                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  4       
-controller_clk_last                                       NET DELAY           2.075         5.155  1       
-i2_3_lut_4_lut_4_lut/A->i2_3_lut_4_lut_4_lut/Z
-                                          LUT4            A_TO_Z_DELAY        0.477         5.632  7       
-clk_enable_2                                              NET DELAY           2.075         7.707  1       
-i1_2_lut/B->i1_2_lut/Z                    LUT4            B_TO_Z_DELAY        0.477         8.184  1       
-n4_adj_1                                                  NET DELAY           2.075        10.259  1       
-i2_4_lut/B->i2_4_lut/Z                    LUT4            B_TO_Z_DELAY        0.477        10.736  2       
-n772                                                      NET DELAY           2.075        12.811  1       
-i117_3_lut/A->i117_3_lut/Z                LUT4            A_TO_Z_DELAY        0.477        13.288  1       
-n253                                                      NET DELAY           2.075        15.363  1       
-i306_4_lut/A->i306_4_lut/Z                LUT4            A_TO_Z_DELAY        0.477        15.840  1       
-n476 ( D )                                                NET DELAY           2.075        17.915  1       
+bit_counter__i2/CK->bit_counter__i2/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  3       
+bit_counter[2]                                            NET DELAY      0.280         3.746  1       
+i1_2_lut_4_lut_adj_1/D->i1_2_lut_4_lut_adj_1/Z
+                                          LUT4            D_TO_Z_DELAY   0.477         4.223  5       
+n3                                                        NET DELAY      2.075         6.298  1       
+i2_3_lut/B->i2_3_lut/Z                    LUT4            B_TO_Z_DELAY   0.477         6.775  3       
+n970                                                      NET DELAY      2.075         8.850  1       
+i1_3_lut_4_lut/D->i1_3_lut_4_lut/Z        LUT4            D_TO_Z_DELAY   0.477         9.327  1       
+n901                                                      NET DELAY      2.075        11.402  1       
+i2_4_lut/A->i2_4_lut/Z                    LUT4            A_TO_Z_DELAY   0.477        11.879  1       
+n1061 ( D )                                               NET DELAY      2.075        13.954  1       
 
 
                                                           CONSTRAINT     0.000        20.833  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  23      
 clk ( CK )                                                NET DELAY      2.075        22.908  1       
                                                           Uncertainty    0.000        22.908  
                                                           Setup time     0.199        22.709  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
 Required Time                                                                         22.709  
-Arrival Time                                                                         -17.914  
+Arrival Time                                                                         -13.953  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   4.794  
+Path Slack  (Passed)                                                                   8.755  
 
 
 
@@ -287,93 +286,89 @@ Path Slack  (Passed)                                                            
 ++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
 Path Begin       : bit_counter__i2/Q  (FD1P3XZ)
-Path End         : byte_counter__i5/D  (FD1P3XZ)
+Path End         : byte_counter_i0_i3/D  (FD1P3XZ)
 Source Clock     : clk (R)
 Destination Clock: clk (R)
-Logic Level      : 6
-Delay Ratio      : 73.8% (route), 26.2% (logic)
+Logic Level      : 5
+Delay Ratio      : 72.2% (route), 27.8% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 6.203 ns  (Passed)
+Path Slack       : 8.755 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk                                                       NET DELAY      2.075         2.075  1       
 
 
 
-bit_counter__i2/CK->bit_counter__i2/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
+bit_counter__i2/CK->bit_counter__i2/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  3       
 bit_counter[2]                                            NET DELAY      0.280         3.746  1       
-i168_2_lut_3_lut/C->i168_2_lut_3_lut/Z    LUT4            C_TO_Z_DELAY   0.477         4.223  3       
-n334                                                      NET DELAY      2.075         6.298  1       
-i185_3_lut_4_lut/B->i185_3_lut_4_lut/Z    LUT4            B_TO_Z_DELAY   0.477         6.775  3       
-n2                                                        NET DELAY      2.075         8.850  1       
-i199_4_lut_4_lut/D->i199_4_lut_4_lut/Z    LUT4            D_TO_Z_DELAY   0.477         9.327  2       
-n6                                                        NET DELAY      2.075        11.402  1       
-i206_3_lut/C->i206_3_lut/Z                LUT4            C_TO_Z_DELAY   0.477        11.879  1       
-n8                                                        NET DELAY      2.075        13.954  1       
-i552_4_lut/A->i552_4_lut/Z                LUT4            A_TO_Z_DELAY   0.477        14.431  1       
-n467 ( D )                                                NET DELAY      2.075        16.506  1       
+i1_2_lut_4_lut_adj_1/D->i1_2_lut_4_lut_adj_1/Z
+                                          LUT4            D_TO_Z_DELAY   0.477         4.223  5       
+n3                                                        NET DELAY      2.075         6.298  1       
+i2_3_lut/B->i2_3_lut/Z                    LUT4            B_TO_Z_DELAY   0.477         6.775  3       
+n970                                                      NET DELAY      2.075         8.850  1       
+i1_2_lut/B->i1_2_lut/Z                    LUT4            B_TO_Z_DELAY   0.477         9.327  1       
+n971                                                      NET DELAY      2.075        11.402  1       
+i307_4_lut/A->i307_4_lut/Z                LUT4            A_TO_Z_DELAY   0.477        11.879  1       
+n910 ( D )                                                NET DELAY      2.075        13.954  1       
 
 
                                                           CONSTRAINT     0.000        20.833  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  23      
 clk ( CK )                                                NET DELAY      2.075        22.908  1       
                                                           Uncertainty    0.000        22.908  
                                                           Setup time     0.199        22.709  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
 Required Time                                                                         22.709  
-Arrival Time                                                                         -16.505  
+Arrival Time                                                                         -13.953  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   6.203  
+Path Slack  (Passed)                                                                   8.755  
 
 
 
 
 ++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : controller_clk_last_c/DI0  (IOL_B)
-Path End         : s_i1/D  (FD1P3XZ)
+Path Begin       : byte_counter_i0_i3/Q  (FD1P3XZ)
+Path End         : s_i0/D  (FD1P3XZ)
 Source Clock     : clk (R)
 Destination Clock: clk (R)
-Logic Level      : 5
-Delay Ratio      : 78.1% (route), 21.9% (logic)
+Logic Level      : 4
+Delay Ratio      : 69.7% (route), 30.3% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 7.346 ns  (Passed)
+Path Slack       : 11.307 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk                                                       NET DELAY      2.075         2.075  1       
 
 
 
-controller_clk_last_c/INCLK->controller_clk_last_c/DI0
-                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  4       
-controller_clk_last                                       NET DELAY           2.075         5.155  1       
-i2_3_lut_4_lut_4_lut/A->i2_3_lut_4_lut_4_lut/Z
-                                          LUT4            A_TO_Z_DELAY        0.477         5.632  7       
-clk_enable_2                                              NET DELAY           2.075         7.707  1       
-i1_2_lut/B->i1_2_lut/Z                    LUT4            B_TO_Z_DELAY        0.477         8.184  1       
-n4_adj_1                                                  NET DELAY           2.075        10.259  1       
-i2_4_lut/B->i2_4_lut/Z                    LUT4            B_TO_Z_DELAY        0.477        10.736  2       
-n772                                                      NET DELAY           2.075        12.811  1       
-i12_3_lut/A->i12_3_lut/Z                  LUT4            A_TO_Z_DELAY        0.477        13.288  1       
-n811 ( D )                                                NET DELAY           2.075        15.363  1       
+byte_counter_i0_i3/CK->byte_counter_i0_i3/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  3       
+byte_counter[3]                                           NET DELAY      0.280         3.746  1       
+i2_3_lut_4_lut/D->i2_3_lut_4_lut/Z        LUT4            D_TO_Z_DELAY   0.477         4.223  2       
+n1097                                                     NET DELAY      2.075         6.298  1       
+i3_4_lut/A->i3_4_lut/Z                    LUT4            A_TO_Z_DELAY   0.477         6.775  1       
+n1070                                                     NET DELAY      2.075         8.850  1       
+i259_3_lut_4_lut/C->i259_3_lut_4_lut/Z    LUT4            C_TO_Z_DELAY   0.477         9.327  1       
+n936 ( D )                                                NET DELAY      2.075        11.402  1       
 
 
                                                           CONSTRAINT     0.000        20.833  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  23      
 clk ( CK )                                                NET DELAY      2.075        22.908  1       
                                                           Uncertainty    0.000        22.908  
                                                           Setup time     0.199        22.709  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
 Required Time                                                                         22.709  
-Arrival Time                                                                         -15.362  
+Arrival Time                                                                         -11.401  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   7.346  
+Path Slack  (Passed)                                                                  11.307  
 
 
 
@@ -381,182 +376,92 @@ Path Slack  (Passed)                                                            
 ++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
 Path Begin       : bit_counter__i2/Q  (FD1P3XZ)
-Path End         : byte_counter__i3/D  (FD1P3XZ)
+Path End         : byte_counter_i0_i2/D  (FD1P3XZ)
 Source Clock     : clk (R)
 Destination Clock: clk (R)
-Logic Level      : 5
-Delay Ratio      : 72.2% (route), 27.8% (logic)
+Logic Level      : 4
+Delay Ratio      : 69.7% (route), 30.3% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 8.755 ns  (Passed)
+Path Slack       : 11.307 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk                                                       NET DELAY      2.075         2.075  1       
 
 
 
-bit_counter__i2/CK->bit_counter__i2/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
+bit_counter__i2/CK->bit_counter__i2/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  3       
 bit_counter[2]                                            NET DELAY      0.280         3.746  1       
-i168_2_lut_3_lut/C->i168_2_lut_3_lut/Z    LUT4            C_TO_Z_DELAY   0.477         4.223  3       
-n334                                                      NET DELAY      2.075         6.298  1       
-i185_3_lut_4_lut/B->i185_3_lut_4_lut/Z    LUT4            B_TO_Z_DELAY   0.477         6.775  3       
-n2                                                        NET DELAY      2.075         8.850  1       
-i192_3_lut/C->i192_3_lut/Z                LUT4            C_TO_Z_DELAY   0.477         9.327  1       
-n4                                                        NET DELAY      2.075        11.402  1       
-i550_4_lut/A->i550_4_lut/Z                LUT4            A_TO_Z_DELAY   0.477        11.879  1       
-n463 ( D )                                                NET DELAY      2.075        13.954  1       
+i1_2_lut_4_lut_adj_1/D->i1_2_lut_4_lut_adj_1/Z
+                                          LUT4            D_TO_Z_DELAY   0.477         4.223  5       
+n3                                                        NET DELAY      2.075         6.298  1       
+i1_2_lut_3_lut/C->i1_2_lut_3_lut/Z        LUT4            C_TO_Z_DELAY   0.477         6.775  1       
+n10                                                       NET DELAY      2.075         8.850  1       
+i314_4_lut/B->i314_4_lut/Z                LUT4            B_TO_Z_DELAY   0.477         9.327  1       
+n909 ( D )                                                NET DELAY      2.075        11.402  1       
 
 
                                                           CONSTRAINT     0.000        20.833  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  23      
 clk ( CK )                                                NET DELAY      2.075        22.908  1       
                                                           Uncertainty    0.000        22.908  
                                                           Setup time     0.199        22.709  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
 Required Time                                                                         22.709  
-Arrival Time                                                                         -13.953  
+Arrival Time                                                                         -11.401  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   8.755  
+Path Slack  (Passed)                                                                  11.307  
 
 
 
 
 ++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : bit_counter__i2/Q  (FD1P3XZ)
-Path End         : byte_counter__i4/D  (FD1P3XZ)
+Path Begin       : byte_counter_i0_i3/Q  (FD1P3XZ)
+Path End         : s_i1/D  (FD1P3XZ)
 Source Clock     : clk (R)
 Destination Clock: clk (R)
-Logic Level      : 5
-Delay Ratio      : 72.2% (route), 27.8% (logic)
+Logic Level      : 4
+Delay Ratio      : 69.7% (route), 30.3% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 8.755 ns  (Passed)
+Path Slack       : 11.307 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk                                                       NET DELAY      2.075         2.075  1       
 
 
 
-bit_counter__i2/CK->bit_counter__i2/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
-bit_counter[2]                                            NET DELAY      0.280         3.746  1       
-i168_2_lut_3_lut/C->i168_2_lut_3_lut/Z    LUT4            C_TO_Z_DELAY   0.477         4.223  3       
-n334                                                      NET DELAY      2.075         6.298  1       
-i185_3_lut_4_lut/B->i185_3_lut_4_lut/Z    LUT4            B_TO_Z_DELAY   0.477         6.775  3       
-n2                                                        NET DELAY      2.075         8.850  1       
-i199_4_lut_4_lut/D->i199_4_lut_4_lut/Z    LUT4            D_TO_Z_DELAY   0.477         9.327  2       
-n6                                                        NET DELAY      2.075        11.402  1       
-i551_4_lut/A->i551_4_lut/Z                LUT4            A_TO_Z_DELAY   0.477        11.879  1       
-n465 ( D )                                                NET DELAY      2.075        13.954  1       
+byte_counter_i0_i3/CK->byte_counter_i0_i3/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  3       
+byte_counter[3]                                           NET DELAY      0.280         3.746  1       
+i2_3_lut_4_lut/D->i2_3_lut_4_lut/Z        LUT4            D_TO_Z_DELAY   0.477         4.223  2       
+n1097                                                     NET DELAY      2.075         6.298  1       
+i110_4_lut/C->i110_4_lut/Z                LUT4            C_TO_Z_DELAY   0.477         6.775  2       
+n774                                                      NET DELAY      2.075         8.850  1       
+i19_4_lut_3_lut/B->i19_4_lut_3_lut/Z      LUT4            B_TO_Z_DELAY   0.477         9.327  1       
+n1071 ( D )                                               NET DELAY      2.075        11.402  1       
 
 
                                                           CONSTRAINT     0.000        20.833  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  23      
 clk ( CK )                                                NET DELAY      2.075        22.908  1       
                                                           Uncertainty    0.000        22.908  
                                                           Setup time     0.199        22.709  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
 Required Time                                                                         22.709  
-Arrival Time                                                                         -13.953  
+Arrival Time                                                                         -11.401  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   8.755  
+Path Slack  (Passed)                                                                  11.307  
 
 
 
 
 ++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-
-Path Begin       : controller_clk_last_c/DI0  (IOL_B)
-Path End         : byte_counter__i1/D  (FD1P3XZ)
-Source Clock     : clk (R)
-Destination Clock: clk (R)
-Logic Level      : 4
-Delay Ratio      : 77.3% (route), 22.7% (logic)
-Clock Skew       : 0.000 ns
-Setup Constraint : 20.833 ns 
-Path Slack       : 9.898 ns  (Passed)
-
-Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk                                                       NET DELAY      2.075         2.075  1       
-
-
-
-controller_clk_last_c/INCLK->controller_clk_last_c/DI0
-                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  4       
-controller_clk_last                                       NET DELAY           2.075         5.155  1       
-i63_2_lut_3_lut/A->i63_2_lut_3_lut/Z      LUT4            A_TO_Z_DELAY        0.477         5.632  2       
-n187                                                      NET DELAY           2.075         7.707  1       
-i2_3_lut/A->i2_3_lut/Z                    LUT4            A_TO_Z_DELAY        0.477         8.184  5       
-n312                                                      NET DELAY           2.075        10.259  1       
-i695_3_lut_4_lut/C->i695_3_lut_4_lut/Z    LUT4            C_TO_Z_DELAY        0.477        10.736  1       
-n729 ( D )                                                NET DELAY           2.075        12.811  1       
-
-
-                                                          CONSTRAINT     0.000        20.833  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  15      
-clk ( CK )                                                NET DELAY      2.075        22.908  1       
-                                                          Uncertainty    0.000        22.908  
-                                                          Setup time     0.199        22.709  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Required Time                                                                         22.709  
-Arrival Time                                                                         -12.810  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   9.898  
-
-
-
-
-++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-
-Path Begin       : controller_clk_last_c/DI0  (IOL_B)
-Path End         : byte_counter__i2/D  (FD1P3XZ)
-Source Clock     : clk (R)
-Destination Clock: clk (R)
-Logic Level      : 4
-Delay Ratio      : 77.3% (route), 22.7% (logic)
-Clock Skew       : 0.000 ns
-Setup Constraint : 20.833 ns 
-Path Slack       : 9.898 ns  (Passed)
-
-Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk                                                       NET DELAY      2.075         2.075  1       
-
-
-
-controller_clk_last_c/INCLK->controller_clk_last_c/DI0
-                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  4       
-controller_clk_last                                       NET DELAY           2.075         5.155  1       
-i63_2_lut_3_lut/A->i63_2_lut_3_lut/Z      LUT4            A_TO_Z_DELAY        0.477         5.632  2       
-n187                                                      NET DELAY           2.075         7.707  1       
-i2_3_lut/A->i2_3_lut/Z                    LUT4            A_TO_Z_DELAY        0.477         8.184  5       
-n312                                                      NET DELAY           2.075        10.259  1       
-i542_4_lut/B->i542_4_lut/Z                LUT4            B_TO_Z_DELAY        0.477        10.736  1       
-n461 ( D )                                                NET DELAY           2.075        12.811  1       
-
-
-                                                          CONSTRAINT     0.000        20.833  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  15      
-clk ( CK )                                                NET DELAY      2.075        22.908  1       
-                                                          Uncertainty    0.000        22.908  
-                                                          Setup time     0.199        22.709  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Required Time                                                                         22.709  
-Arrival Time                                                                         -12.810  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   9.898  
-
-
-
-
-++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
 Path Begin       : controller_clk_last_c/DI0  (IOL_B)
 Path End         : CIPO_i0/SR  (FD1P3XZ)
@@ -570,23 +475,23 @@ Path Slack       : 12.146 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk                                                       NET DELAY      2.075         2.075  1       
 
 
 
 controller_clk_last_c/INCLK->controller_clk_last_c/DI0
-                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  4       
+                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  3       
 controller_clk_last                                       NET DELAY           2.075         5.155  1       
-i2_3_lut_4_lut_4_lut/A->i2_3_lut_4_lut_4_lut/Z
-                                          LUT4            A_TO_Z_DELAY        0.477         5.632  7       
-clk_enable_2                                              NET DELAY           2.075         7.707  1       
-i286_2_lut_3_lut/B->i286_2_lut_3_lut/Z    LUT4            B_TO_Z_DELAY        0.450         8.157  1       
-n456 ( SR )                                               NET DELAY           2.075        10.232  1       
+i61_2_lut_3_lut/A->i61_2_lut_3_lut/Z      LUT4            A_TO_Z_DELAY        0.477         5.632  3       
+n702                                                      NET DELAY           2.075         7.707  1       
+i249_2_lut_3_lut_3_lut/A->i249_2_lut_3_lut_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY        0.450         8.157  1       
+n926 ( SR )                                               NET DELAY           2.075        10.232  1       
 
 
                                                           CONSTRAINT     0.000        20.833  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  23      
 clk ( CK )                                                NET DELAY      2.075        22.908  1       
                                                           Uncertainty    0.000        22.908  
                                                           Setup time     0.530        22.378  
@@ -595,6 +500,90 @@ Required Time                                                                   
 Arrival Time                                                                         -10.231  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
 Path Slack  (Passed)                                                                  12.146  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : controller_clk_last_c/DI0  (IOL_B)
+Path End         : led_array_i0_i2/SP  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 3
+Delay Ratio      : 76.1% (route), 23.9% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 12.450 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk                                                       NET DELAY      2.075         2.075  1       
+
+
+
+controller_clk_last_c/INCLK->controller_clk_last_c/DI0
+                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  3       
+controller_clk_last                                       NET DELAY           2.075         5.155  1       
+i61_2_lut_3_lut/A->i61_2_lut_3_lut/Z      LUT4            A_TO_Z_DELAY        0.477         5.632  3       
+n702                                                      NET DELAY           2.075         7.707  1       
+i66_2_lut_2_lut/A->i66_2_lut_2_lut/Z      LUT4            A_TO_Z_DELAY        0.477         8.184  9       
+clk_enable_2 ( SP )                                       NET DELAY           2.075        10.259  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  23      
+clk ( CK )                                                NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -10.258  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                  12.450  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : controller_clk_last_c/DI0  (IOL_B)
+Path End         : CIPO_i0/SP  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 3
+Delay Ratio      : 76.1% (route), 23.9% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 12.450 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk                                                       NET DELAY      2.075         2.075  1       
+
+
+
+controller_clk_last_c/INCLK->controller_clk_last_c/DI0
+                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  3       
+controller_clk_last                                       NET DELAY           2.075         5.155  1       
+i61_2_lut_3_lut/A->i61_2_lut_3_lut/Z      LUT4            A_TO_Z_DELAY        0.477         5.632  3       
+n702                                                      NET DELAY           2.075         7.707  1       
+i66_2_lut_2_lut/A->i66_2_lut_2_lut/Z      LUT4            A_TO_Z_DELAY        0.477         8.184  9       
+clk_enable_2 ( SP )                                       NET DELAY           2.075        10.259  1       
+
+
+                                                          CONSTRAINT     0.000        20.833  1       
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  23      
+clk ( CK )                                                NET DELAY      2.075        22.908  1       
+                                                          Uncertainty    0.000        22.908  
+                                                          Setup time     0.199        22.709  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         22.709  
+Arrival Time                                                                         -10.258  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                  12.450  
 
 
 
@@ -613,22 +602,22 @@ Path Slack       : 12.450 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk                                                       NET DELAY      2.075         2.075  1       
 
 
 
 controller_clk_last_c/INCLK->controller_clk_last_c/DI0
-                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  4       
+                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  3       
 controller_clk_last                                       NET DELAY           2.075         5.155  1       
-i143_2_lut_3_lut/A->i143_2_lut_3_lut/Z    LUT4            A_TO_Z_DELAY        0.477         5.632  4       
-n305                                                      NET DELAY           2.075         7.707  1       
-i540_3_lut/C->i540_3_lut/Z                LUT4            C_TO_Z_DELAY        0.477         8.184  1       
+i134_2_lut_3_lut/A->i134_2_lut_3_lut/Z    LUT4            A_TO_Z_DELAY        0.477         5.632  4       
+n803                                                      NET DELAY           2.075         7.707  1       
+i347_3_lut/C->i347_3_lut/Z                LUT4            C_TO_Z_DELAY        0.477         8.184  1       
 n12 ( D )                                                 NET DELAY           2.075        10.259  1       
 
 
                                                           CONSTRAINT     0.000        20.833  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  23      
 clk ( CK )                                                NET DELAY      2.075        22.908  1       
                                                           Uncertainty    0.000        22.908  
                                                           Setup time     0.199        22.709  
@@ -644,7 +633,7 @@ Path Slack  (Passed)                                                            
 ++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
 Path Begin       : controller_clk_last_c/DI0  (IOL_B)
-Path End         : byte_counter__i2/SP  (FD1P3XZ)
+Path End         : byte_counter_i0_i0/SP  (FD1P3XZ)
 Source Clock     : clk (R)
 Destination Clock: clk (R)
 Logic Level      : 3
@@ -655,22 +644,22 @@ Path Slack       : 12.450 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk                                                       NET DELAY      2.075         2.075  1       
 
 
 
 controller_clk_last_c/INCLK->controller_clk_last_c/DI0
-                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  4       
+                                          IOL_B           INCLK_TO_DI0_DELAY  1.005         3.080  3       
 controller_clk_last                                       NET DELAY           2.075         5.155  1       
-i63_2_lut_3_lut/A->i63_2_lut_3_lut/Z      LUT4            A_TO_Z_DELAY        0.477         5.632  2       
-n187                                                      NET DELAY           2.075         7.707  1       
-i689_3_lut/B->i689_3_lut/Z                LUT4            B_TO_Z_DELAY        0.477         8.184  5       
-n466 ( SP )                                               NET DELAY           2.075        10.259  1       
+i61_2_lut_3_lut/A->i61_2_lut_3_lut/Z      LUT4            A_TO_Z_DELAY        0.477         5.632  3       
+n702                                                      NET DELAY           2.075         7.707  1       
+i460_2_lut/B->i460_2_lut/Z                LUT4            B_TO_Z_DELAY        0.477         8.184  5       
+n923 ( SP )                                               NET DELAY           2.075        10.259  1       
 
 
                                                           CONSTRAINT     0.000        20.833  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000        20.833  23      
 clk ( CK )                                                NET DELAY      2.075        22.908  1       
                                                           Uncertainty    0.000        22.908  
                                                           Setup time     0.199        22.709  
@@ -705,8 +694,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : s_i0/Q  (FD1P3XZ)
-Path End         : CIPO_i0/D  (FD1P3XZ)
+Path Begin       : led_array_i0_i6/Q  (FD1P3XZ)
+Path End         : led_array_i0_i7/D  (FD1P3XZ)
 Source Clock     : clk (R)
 Destination Clock: clk (R)
 Logic Level      : 1
@@ -717,17 +706,17 @@ Path Slack       : 1.671 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk                                                       NET DELAY      2.075         2.075  1       
 
 
 
-s_i0/CK->s_i0/Q                           FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  17      
-s[0] ( D )                                                NET DELAY      0.280         3.746  1       
+led_array_i0_i6/CK->led_array_i0_i6/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
+led_array_c_5 ( D )                                       NET DELAY      0.280         3.746  1       
 
 
                                                           CONSTRAINT     0.000         0.000  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk ( CK )                                                NET DELAY      2.075         2.075  1       
                                                           Uncertainty    0.000         2.075  
                                                           Hold time      0.000         2.075  
@@ -742,8 +731,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : s_i0/Q  (FD1P3XZ)
-Path End         : data_ready_i1/DO0  (IOL_B)
+Path Begin       : led_array_i0_i5/Q  (FD1P3XZ)
+Path End         : led_array_i0_i6/D  (FD1P3XZ)
 Source Clock     : clk (R)
 Destination Clock: clk (R)
 Logic Level      : 1
@@ -754,18 +743,18 @@ Path Slack       : 1.671 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk                                                       NET DELAY      2.075         2.075  1       
 
 
 
-s_i0/CK->s_i0/Q                           FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  17      
-s[0] ( DO0 )                                              NET DELAY      0.280         3.746  1       
+led_array_i0_i5/CK->led_array_i0_i5/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
+led_array_c_4 ( D )                                       NET DELAY      0.280         3.746  1       
 
 
                                                           CONSTRAINT     0.000         0.000  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk ( OUTCLK )                                            NET DELAY      2.075         2.075  1       
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk ( CK )                                                NET DELAY      2.075         2.075  1       
                                                           Uncertainty    0.000         2.075  
                                                           Hold time      0.000         2.075  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
@@ -779,6 +768,228 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
+Path Begin       : led_array_i0_i4/Q  (FD1P3XZ)
+Path End         : led_array_i0_i5/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk                                                       NET DELAY      2.075         2.075  1       
+
+
+
+led_array_i0_i4/CK->led_array_i0_i4/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
+led_array_c_3 ( D )                                       NET DELAY      0.280         3.746  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk ( CK )                                                NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           3.746  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   1.671  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : led_array_i0_i3/Q  (FD1P3XZ)
+Path End         : led_array_i0_i4/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk                                                       NET DELAY      2.075         2.075  1       
+
+
+
+led_array_i0_i3/CK->led_array_i0_i3/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
+led_array_c_2 ( D )                                       NET DELAY      0.280         3.746  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk ( CK )                                                NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           3.746  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   1.671  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : led_array_i0_i2/Q  (FD1P3XZ)
+Path End         : led_array_i0_i3/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk                                                       NET DELAY      2.075         2.075  1       
+
+
+
+led_array_i0_i2/CK->led_array_i0_i2/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
+led_array_c_1 ( D )                                       NET DELAY      0.280         3.746  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk ( CK )                                                NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           3.746  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   1.671  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : led_array_i0_i1/Q  (FD1P3XZ)
+Path End         : led_array_i0_i2/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk                                                       NET DELAY      2.075         2.075  1       
+
+
+
+led_array_i0_i1/CK->led_array_i0_i1/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
+led_array_c_0 ( D )                                       NET DELAY      0.280         3.746  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk ( CK )                                                NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           3.746  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   1.671  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : s_i0/Q  (FD1P3XZ)
+Path End         : data_ready_i1/DO0  (IOL_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk                                                       NET DELAY      2.075         2.075  1       
+
+
+
+s_i0/CK->s_i0/Q                           FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  10      
+s[0] ( DO0 )                                              NET DELAY      0.280         3.746  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk ( OUTCLK )                                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           3.746  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   1.671  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : led_array_i0_i7/Q  (FD1P3XZ)
+Path End         : led_array_i0_i8/DO0  (IOL_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk                                                       NET DELAY      2.075         2.075  1       
+
+
+
+led_array_i0_i7/CK->led_array_i0_i7/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
+led_array_c_6 ( DO0 )                                     NET DELAY      0.280         3.746  1       
+
+
+                                                          CONSTRAINT     0.000         0.000  1       
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
+clk ( OUTCLK )                                            NET DELAY      2.075         2.075  1       
+                                                          Uncertainty    0.000         2.075  
+                                                          Hold time      0.000         2.075  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -2.075  
+Arrival Time                                                                           3.746  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   1.671  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
 Path Begin       : controller_clk_last_c/DI0  (IOL_B)
 Path End         : controller_clk_last_last_c/D  (FD1P3XZ)
 Source Clock     : clk (R)
@@ -791,18 +1002,18 @@ Path Slack       : 2.958 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk                                                       NET DELAY      2.075         2.075  1       
 
 
 
 controller_clk_last_c/INCLK->controller_clk_last_c/DI0
-                                          IOL_B           INCLK_TO_DI0_DELAY  0.883         2.958  4       
+                                          IOL_B           INCLK_TO_DI0_DELAY  0.883         2.958  3       
 controller_clk_last ( D )                                 NET DELAY           2.075         5.033  1       
 
 
                                                           CONSTRAINT     0.000         0.000  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk ( CK )                                                NET DELAY      2.075         2.075  1       
                                                           Uncertainty    0.000         2.075  
                                                           Hold time      0.000         2.075  
@@ -815,165 +1026,7 @@ Path Slack  (Passed)                                                            
 
 
 
-++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-
-Path Begin       : controller_clk_last_last_c/Q  (FD1P3XZ)
-Path End         : bit_counter__i2/SP  (FD1P3XZ)
-Source Clock     : clk (R)
-Destination Clock: clk (R)
-Logic Level      : 2
-Delay Ratio      : 56.1% (route), 43.9% (logic)
-Clock Skew       : 0.000 ns
-Hold Constraint  : 0.000 ns 
-Path Slack       : 4.196 ns  (Passed)
-
-Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk                                                       NET DELAY      2.075         2.075  1       
-
-
-
-controller_clk_last_last_c/CK->controller_clk_last_last_c/Q
-                                          FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  3       
-controller_clk_last_last                                  NET DELAY      0.280         3.746  1       
-i143_2_lut_3_lut/B->i143_2_lut_3_lut/Z    LUT4            B_TO_Z_DELAY   0.450         4.196  4       
-n305 ( SP )                                               NET DELAY      2.075         6.271  1       
-
-
-                                                          CONSTRAINT     0.000         0.000  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk ( CK )                                                NET DELAY      2.075         2.075  1       
-                                                          Uncertainty    0.000         2.075  
-                                                          Hold time      0.000         2.075  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Required Time                                                                         -2.075  
-Arrival Time                                                                           6.271  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   4.196  
-
-
-
-
-++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-
-Path Begin       : bit_counter__i2/Q  (FD1P3XZ)
-Path End         : bit_counter__i2/D  (FD1P3XZ)
-Source Clock     : clk (R)
-Destination Clock: clk (R)
-Logic Level      : 2
-Delay Ratio      : 56.1% (route), 43.9% (logic)
-Clock Skew       : 0.000 ns
-Hold Constraint  : 0.000 ns 
-Path Slack       : 4.196 ns  (Passed)
-
-Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk ( CK )                                                NET DELAY      2.075         2.075  1       
-
-
-
-bit_counter__i2/CK->bit_counter__i2/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
-bit_counter[2]                                            NET DELAY      0.280         3.746  1       
-i556_3_lut_4_lut/D->i556_3_lut_4_lut/Z    LUT4            D_TO_Z_DELAY   0.450         4.196  1       
-n471 ( D )                                                NET DELAY      2.075         6.271  1       
-
-
-                                                          CONSTRAINT     0.000         0.000  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk ( CK )                                                NET DELAY      2.075         2.075  1       
-                                                          Uncertainty    0.000         2.075  
-                                                          Hold time      0.000         2.075  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Required Time                                                                         -2.075  
-Arrival Time                                                                           6.271  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   4.196  
-
-
-
-
-++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-
-Path Begin       : bit_counter__i0/Q  (FD1P3XZ)
-Path End         : bit_counter__i0/D  (FD1P3XZ)
-Source Clock     : clk (R)
-Destination Clock: clk (R)
-Logic Level      : 2
-Delay Ratio      : 56.1% (route), 43.9% (logic)
-Clock Skew       : 0.000 ns
-Hold Constraint  : 0.000 ns 
-Path Slack       : 4.196 ns  (Passed)
-
-Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk ( CK )                                                NET DELAY      2.075         2.075  1       
-
-
-
-bit_counter__i0/CK->bit_counter__i0/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  4       
-bit_counter[0]                                            NET DELAY      0.280         3.746  1       
-i540_3_lut/A->i540_3_lut/Z                LUT4            A_TO_Z_DELAY   0.450         4.196  1       
-n12 ( D )                                                 NET DELAY      2.075         6.271  1       
-
-
-                                                          CONSTRAINT     0.000         0.000  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk ( CK )                                                NET DELAY      2.075         2.075  1       
-                                                          Uncertainty    0.000         2.075  
-                                                          Hold time      0.000         2.075  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Required Time                                                                         -2.075  
-Arrival Time                                                                           6.271  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   4.196  
-
-
-
-
-++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-
-Path Begin       : controller_clk_last_last_c/Q  (FD1P3XZ)
-Path End         : bit_counter__i3/SP  (FD1P3XZ)
-Source Clock     : clk (R)
-Destination Clock: clk (R)
-Logic Level      : 2
-Delay Ratio      : 56.1% (route), 43.9% (logic)
-Clock Skew       : 0.000 ns
-Hold Constraint  : 0.000 ns 
-Path Slack       : 4.196 ns  (Passed)
-
-Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk                                                       NET DELAY      2.075         2.075  1       
-
-
-
-controller_clk_last_last_c/CK->controller_clk_last_last_c/Q
-                                          FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  3       
-controller_clk_last_last                                  NET DELAY      0.280         3.746  1       
-i143_2_lut_3_lut/B->i143_2_lut_3_lut/Z    LUT4            B_TO_Z_DELAY   0.450         4.196  4       
-n305 ( SP )                                               NET DELAY      2.075         6.271  1       
-
-
-                                                          CONSTRAINT     0.000         0.000  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk ( CK )                                                NET DELAY      2.075         2.075  1       
-                                                          Uncertainty    0.000         2.075  
-                                                          Hold time      0.000         2.075  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Required Time                                                                         -2.075  
-Arrival Time                                                                           6.271  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   4.196  
-
-
-
-
-++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
 Path Begin       : bit_counter__i3/Q  (FD1P3XZ)
 Path End         : bit_counter__i3/D  (FD1P3XZ)
@@ -987,97 +1040,19 @@ Path Slack       : 4.196 ns  (Passed)
 
 Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk ( CK )                                                NET DELAY      2.075         2.075  1       
 
 
 
-bit_counter__i3/CK->bit_counter__i3/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  3       
+bit_counter__i3/CK->bit_counter__i3/Q     FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  2       
 bit_counter[3]                                            NET DELAY      0.280         3.746  1       
-i557_3_lut/A->i557_3_lut/Z                LUT4            A_TO_Z_DELAY   0.450         4.196  1       
-n473 ( D )                                                NET DELAY      2.075         6.271  1       
+i1_3_lut/B->i1_3_lut/Z                    LUT4            B_TO_Z_DELAY   0.450         4.196  1       
+n933 ( D )                                                NET DELAY      2.075         6.271  1       
 
 
                                                           CONSTRAINT     0.000         0.000  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk ( CK )                                                NET DELAY      2.075         2.075  1       
-                                                          Uncertainty    0.000         2.075  
-                                                          Hold time      0.000         2.075  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Required Time                                                                         -2.075  
-Arrival Time                                                                           6.271  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   4.196  
-
-
-
-
-++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-
-Path Begin       : s_i0/Q  (FD1P3XZ)
-Path End         : byte_counter__i2/SP  (FD1P3XZ)
-Source Clock     : clk (R)
-Destination Clock: clk (R)
-Logic Level      : 2
-Delay Ratio      : 56.1% (route), 43.9% (logic)
-Clock Skew       : 0.000 ns
-Hold Constraint  : 0.000 ns 
-Path Slack       : 4.196 ns  (Passed)
-
-Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk                                                       NET DELAY      2.075         2.075  1       
-
-
-
-s_i0/CK->s_i0/Q                           FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  17      
-s[0]                                                      NET DELAY      0.280         3.746  1       
-i689_3_lut/C->i689_3_lut/Z                LUT4            C_TO_Z_DELAY   0.450         4.196  5       
-n466 ( SP )                                               NET DELAY      2.075         6.271  1       
-
-
-                                                          CONSTRAINT     0.000         0.000  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk ( CK )                                                NET DELAY      2.075         2.075  1       
-                                                          Uncertainty    0.000         2.075  
-                                                          Hold time      0.000         2.075  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Required Time                                                                         -2.075  
-Arrival Time                                                                           6.271  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                   4.196  
-
-
-
-
-++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-
-Path Begin       : byte_counter__i2/Q  (FD1P3XZ)
-Path End         : byte_counter__i2/D  (FD1P3XZ)
-Source Clock     : clk (R)
-Destination Clock: clk (R)
-Logic Level      : 2
-Delay Ratio      : 56.1% (route), 43.9% (logic)
-Clock Skew       : 0.000 ns
-Hold Constraint  : 0.000 ns 
-Path Slack       : 4.196 ns  (Passed)
-
-Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
-----------------------------------------  --------------  -------------  -----  ------------  ------  
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
-clk ( CK )                                                NET DELAY      2.075         2.075  1       
-
-
-
-byte_counter__i2/CK->byte_counter__i2/Q   FD1P3XZ         CK_TO_Q_DELAY  1.391         3.466  6       
-led_array_c_1                                             NET DELAY      0.280         3.746  1       
-i542_4_lut/D->i542_4_lut/Z                LUT4            D_TO_Z_DELAY   0.450         4.196  1       
-n461 ( D )                                                NET DELAY      2.075         6.271  1       
-
-
-                                                          CONSTRAINT     0.000         0.000  1       
-H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  15      
+H/CLKHF                                   HSOSC_CORE      CLOCK LATENCY  0.000         0.000  23      
 clk ( CK )                                                NET DELAY      2.075         2.075  1       
                                                           Uncertainty    0.000         2.075  
                                                           Hold time      0.000         2.075  

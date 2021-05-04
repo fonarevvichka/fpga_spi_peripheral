@@ -48,7 +48,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2020 Lattice Semiconductor Corporation,  All rights reserved.
-Tue May  4 16:43:15 2021
+Tue May  4 17:02:21 2021
 
 
 Command Line:  C:\lscc\radiant\2.2\ispfpga\bin\nt64\synthesis.exe -f SPI_impl_1_lattice.synproj -gui -msgset C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI/promote.xml 
@@ -196,11 +196,9 @@ Top module name (VHDL, mixed language): peripheral
                                                          
 
 
-WARNING - synthesis: I/O Port COPI 's net has no driver and is unused.
 
 
 
-WARNING - synthesis: I/O Port COPI 's net has no driver and is unused.
 WARNING - synthesis: Initial value found on instance s_i1 will be ignored.
 INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
 
@@ -208,12 +206,12 @@ INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are s
 <A name="lse_area"></A><B><U><big>Area Report</big></U></B>
 
 ################### Begin Area Report (peripheral)######################
-Number of register bits => 13 of 5280 (0 % )
-FD1P3XZ => 13
+Number of register bits => 20 of 5280 (0 % )
+FD1P3XZ => 20
 HSOSC_CORE => 1
-IB => 3
-IOL_B => 2
-LUT4 => 31
+IB => 4
+IOL_B => 3
+LUT4 => 29
 OB => 11
 ################### End Area Report ##################
 Number of odd-length carry chains : 0
@@ -230,19 +228,19 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : s[0], loads : 17
-  Net : reset_c, loads : 11
-  Net : s[1], loads : 8
-  Net : CS_c, loads : 7
-  Net : clk_enable_2, loads : 7
-  Net : led_array_c_1, loads : 6
-  Net : led_array_c_3, loads : 5
-  Net : led_array_c_2, loads : 5
-  Net : led_array_c_0, loads : 5
-  Net : n312, loads : 5
+  Net : reset_c, loads : 15
+  Net : s[0], loads : 10
+  Net : clk_enable_2, loads : 9
+  Net : CS_c, loads : 6
+  Net : byte_counter[0], loads : 6
+  Net : s[1], loads : 6
+  Net : n923, loads : 5
+  Net : bit_counter[0], loads : 5
+  Net : byte_counter[2], loads : 5
+  Net : byte_counter[1], loads : 5
 ################### End Clock Report ##################
 
-Peak Memory Usage: 94 MB
+Peak Memory Usage: 95 MB
 
 --------------------------------------------------------------
 Total CPU Time: 1 secs 

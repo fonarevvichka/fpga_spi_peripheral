@@ -21,7 +21,7 @@ architecture synth of peripheral is
     signal controller_clk_last_last	: std_logic := '0';
     signal read_spi					: std_logic;
     
-    signal byte_shiftreg			: std_logic_vector(7 downto 0) := 8d"0";
+    -- signal byte_shiftreg			: std_logic_vector(7 downto 0) := 8d"0";
     signal image_shiftreg			: std_logic_vector(127 downto 0) := 128d"0";
     signal bit_counter				: unsigned (3 downto 0) := 4d"0";
     signal byte_counter				: unsigned (4 downto 0) := 5d"0";
@@ -42,13 +42,13 @@ architecture synth of peripheral is
 
 begin
     read_spi	<= controller_clk_last and (not controller_clk_last_last); -- clock crossing SPI edge detection
-    -- led_array	<= byte_shiftreg;
-    led_array	<=  "000" & std_logic_vector(byte_counter);
-	led			<= '1' when (s = READ) else '0';
+    --led_array	<= byte_shiftreg;
+	led			<= '1' when (s = WRITE) else '0';
 
     process (clk) begin
         if (reset = '1') then
-            byte_shiftreg	<= 8d"0";
+            -- byte_shiftreg	<= 8d"0";
+            image_shiftreg  <= 128d"0";
             bit_counter		<= 4d"0";
             byte_counter	<= 5d"0";
         elsif rising_edge(clk) then
@@ -57,42 +57,53 @@ begin
 
             if (cs = '0') then
                 if (read_spi = '1') then
-                    bit_counter					<= bit_counter + 1;
-                    byte_shiftreg(6 downto 0)	<= byte_shiftreg (7 downto 1);
-                    byte_shiftreg(7) 			<= COPI;
+                    bit_counter				<= bit_counter + 1;
+                    
+                    image_shiftreg(127 downto 1)    <= image_shiftreg(126 downto 0);
+                    image_shiftreg(0)               <= COPI;
+
+                    -- just for show --                    
+                    led_array(7 downto 1)	<= led_array (6 downto 0);
+                    led_array(0) 			<= COPI;
+                    -- just for show --                    
 
                     case s is
-                        when IDLE =>
-							data_ready <= '0';
-                            s <= READ;
                         when READ =>
-							data_ready <= '0';
                             if (bit_counter = "0111") then -- read 8 bits
                                 byte_counter	<= byte_counter + 1;
                             end if;	
 
-                            if (byte_counter = "11111") then -- this is casuing problems
-                                s <= WRITE;
-                            end if;
-							
-							CIPO <= '0';
+							CIPO <= COPI;
 						when WRITE =>
-							data_ready <= '1';
                             if (bit_counter = "0111") then -- read 8 bits
                                 byte_counter	<= byte_counter - 1;
                             end if;
 							
-							if (byte_counter = 5d"0") then -- transmitted all data back
-								s	<= IDLE;
-							end if;
-							
 							CIPO	<= '1';
+						when others =>
+							CIPO <= '0';
                     end case;
                 end if;
             else
                 bit_counter <= 4d"0";
-				byte_shiftreg	<= 8d"0";
+				-- byte_shiftreg	<= 8d"0";
             end if;
+
+            case s is
+                when IDLE =>
+                    data_ready <= '0';
+                    s <= READ;
+                when READ =>
+                    data_ready <= '0';
+                    if (byte_counter = "10000") then -- this is casuing problems
+                        s <= WRITE;
+                    end if;
+                when WRITE =>
+                    data_ready <= '1';
+                    if (byte_counter = 5d"0") then -- transmitted all data back
+                        s	<= IDLE;
+                    end if;
+            end case;
         end if;
     end process;
     

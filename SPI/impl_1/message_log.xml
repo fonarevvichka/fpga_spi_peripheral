@@ -2,121 +2,8 @@
 <BaliMessageLog>
     <Task name="Export">
         <Message>
-            <ID>1009991</ID>
-            <Severity>16</Severity>
-            <Dynamic>bitgen: Unable to find the instance/port 'COPI' in the constraint 'ldc_set_location -site {47} [get_ports COPI]'</Dynamic>
-            <Navigation>WARNING</Navigation>
-            <Navigation>bitgen: Unable to find the instance/port 'COPI' in the constraint 'ldc_set_location -site {47} [get_ports COPI]'</Navigation>
-        </Message>
-        <Message>
-            <ID>1009991</ID>
-            <Severity>16</Severity>
-            <Dynamic>bitgen: In the constraint 'ldc_set_location -site {47} [get_ports COPI]', the locate object is not specified</Dynamic>
-            <Navigation>WARNING</Navigation>
-            <Navigation>bitgen: In the constraint 'ldc_set_location -site {47} [get_ports COPI]', the locate object is not specified</Navigation>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
             <ID>1191031</ID>
             <Severity>1</Severity>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-    </Task>
-    <Task name="PAR">
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {47} [get_ports COPI]</Dynamic>
         </Message>
     </Task>
     <Task name="Synthesis">
@@ -419,16 +306,6 @@
             <Dynamic>C:/Users/fonar/Documents/CS Remote/es4/fpga_spi_peripheral/SPI/impl_1</Dynamic>
         </Message>
         <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-        </Message>
-        <Message>
             <ID>35001779</ID>
             <Severity>16</Severity>
             <Dynamic>s_i1</Dynamic>
@@ -436,18 +313,6 @@
         <Message>
             <ID>35002039</ID>
             <Severity>1</Severity>
-        </Message>
-    </Task>
-    <Task name="Map">
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>COPI</Dynamic>
         </Message>
     </Task>
 </BaliMessageLog>
