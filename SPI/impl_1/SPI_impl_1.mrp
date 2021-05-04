@@ -5,7 +5,7 @@ Target Device:        iCE40UP5KSG48
 Target Performance:   High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2.2.1.239.2
-Mapped on: Tue May  4 16:03:42 2021
+Mapped on: Tue May  4 16:43:16 2021
 
 Design Information
 ------------------
@@ -17,16 +17,16 @@ Command line:   map SPI_impl_1_syn.udb C:/Users/fonar/Documents/CS
 Design Summary
 --------------
 
-   Number of slice registers:  21 out of  5280 (<1%)
+   Number of slice registers:  13 out of  5280 (<1%)
    Number of I/O registers:      2 out of   117 (2%)
-   Number of LUT4s:            41 out of  5280 (1%)
-      Number of logic LUT4s:              39
+   Number of LUT4s:            35 out of  5280 (1%)
+      Number of logic LUT4s:              33
       Number of inserted feedthru LUT4s:   2
       Number of ripple logic:              0 (0 LUT4s)
-   Number of IO sites used:   15 out of 39 (38%)
-      Number of IO sites used for general PIOs: 15
+   Number of IO sites used:   14 out of 39 (36%)
+      Number of IO sites used for general PIOs: 14
       Number of IO sites used for I3Cs: 0 out of 2 (0%)
-      Number of IO sites used for PIOs+I3Cs: 15 out of 36 (42%)
+      Number of IO sites used for PIOs+I3Cs: 14 out of 36 (39%)
       (note: If I3C is not used, its site can be used as general PIO)
       Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
    Number of DSPs:             0 out of 8 (0%)
@@ -42,24 +42,24 @@ Design Summary
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             0 out of 1 (0%)
    Number of Clocks:  1
-      Net clk: 23 loads, 23 rising, 0 falling (Driver: Pin H/CLKHF)
+      Net clk: 15 loads, 15 rising, 0 falling (Driver: Pin H/CLKHF)
    Number of Clock Enables:  6
       Net VCC_net: 1 loads, 0 SLICEs
       Net clk_enable_1: 2 loads, 1 SLICEs
-      Net n495: 5 loads, 5 SLICEs
-      Net n314: 11 loads, 11 SLICEs
+      Net n466: 5 loads, 5 SLICEs
       Net clk_enable_2: 1 loads, 0 SLICEs
-      Net n480: 1 loads, 1 SLICEs
+      Net n305: 3 loads, 3 SLICEs
+      Net n455: 1 loads, 1 SLICEs
    Number of LSRs:  2
-      Pin reset: 17 loads, 17 SLICEs (Net: reset_c)
-      Net n481: 1 loads, 1 SLICEs
+      Pin reset: 9 loads, 9 SLICEs (Net: reset_c)
+      Net n456: 1 loads, 1 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net reset_c: 19 loads
       Net s[0]: 17 loads
-      Net CS_c: 16 loads
-      Net n314: 11 loads
+      Net reset_c: 11 loads
       Net s[1]: 8 loads
       Net clk_enable_2: 7 loads
+      Net CS_c: 7 loads
+      Net led_array_c_1: 6 loads
 
                                     Page 1
 
@@ -69,21 +69,22 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-      Net byte_counter[1]: 5 loads
       Net controller_clk_last: 5 loads
-      Net n318: 5 loads
-      Net n495: 5 loads
+      Net led_array_c_0: 5 loads
+      Net led_array_c_2: 5 loads
+      Net n466: 5 loads
 
 
 
 
-   Number of warnings:  0
+   Number of warnings:  2
    Number of errors:    0
 
 Design Errors/Warnings
 ----------------------
 
-   No errors or warnings present.
+WARNING - map: Top module port 'COPI' does not connect to anything.
+WARNING - map: Top module port 'COPI' does not connect to anything.
 
 IO (PIO) Attributes
 -------------------
@@ -118,14 +119,13 @@ IO (PIO) Attributes
 +---------------------+-----------+-----------+-------+-------+-----------+
 | controller_clk      | INPUT     | LVCMOS33  | I     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| COPI                | INPUT     | LVCMOS33  |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 | CS                  | INPUT     | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
+OSC Summary
+-----------
 
-
-
+OSC 1:                                 Pin/Node Value
 
                                     Page 2
 
@@ -133,15 +133,8 @@ IO (PIO) Attributes
 
 
 
-Removed logic
--------------
-
-Block i767 was optimized away.
-
-OSC Summary
------------
-
-OSC 1:                                 Pin/Node Value
+OSC Summary (cont)
+------------------
   OSC Instance Name:                            H
   Power UP:                            NODE     VCC_net
   Enable Signal:                       NODE     VCC_net
@@ -164,6 +157,13 @@ Run Time and Memory Usage
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
    Peak Memory Usage: 50 MB
+
+
+
+
+
+
+
 
 
 

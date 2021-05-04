@@ -4,7 +4,7 @@ Report for cell peripheral
                      Cell usage:
                                   cell	      count    Res Usage(%)
                                  IOLGC	       2.00        100.0
-                                  LUT4	         41        100.0
+                                  LUT4	         35        100.0
                                  IOREG	          2        100.0
-                                 IOBUF	         15        100.0
-                                PFUREG	         21        100.0
+                                 IOBUF	         14        100.0
+                                PFUREG	         13        100.0

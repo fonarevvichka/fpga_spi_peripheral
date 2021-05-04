@@ -1,6 +1,6 @@
 
 Lattice Place and Route Report for Design "SPI_impl_1_map.udb"
-Tue May  4 16:03:43 2021
+Tue May  4 16:43:18 2021
 
 PAR: Place And Route Radiant Software (64-bit) 2.2.1.239.2.
 Command Line: par -w -t 1 -cores 1 -exp parPathBased=ON SPI_impl_1_map.udb \
@@ -18,15 +18,31 @@ Family:  iCE40UP
 Device:  iCE40UP5K
 Package: SG48
 Performance Grade:   High-Performance_1.2V
-Number of Signals: 69
-Number of Connections: 217
+WARNING - par: Unable to find the instance/port 'COPI' in the constraint 'ldc_set_location -site {47} [get_ports COPI]'
+
+WARNING - par: In the constraint 'ldc_set_location -site {47} [get_ports COPI]', the locate object is not specified
+
+WARNING - par: Unable to find the instance/port 'COPI' in the constraint 'ldc_set_location -site {47} [get_ports COPI]'
+
+WARNING - par: In the constraint 'ldc_set_location -site {47} [get_ports COPI]', the locate object is not specified
+
+WARNING - par: Unable to find the instance/port 'COPI' in the constraint 'ldc_set_location -site {47} [get_ports COPI]'
+
+WARNING - par: In the constraint 'ldc_set_location -site {47} [get_ports COPI]', the locate object is not specified
+
+WARNING - par: Top module port 'COPI' does not connect to anything.
+WARNING - par: Top module port 'COPI' does not connect to anything.
+WARNING - par: Top module port 'COPI' does not connect to anything.
+WARNING - par: Top module port 'COPI' does not connect to anything.
+Number of Signals: 54
+Number of Connections: 169
 Device utilization summary:
 
-   SLICE (est.)      23/2640         <1% used
-     LUT             41/5280         <1% used
-     REG             21/5280         <1% used
-   PIO               15/56           26% used
-                     15/36           41% bonded
+   SLICE (est.)      20/2640         <1% used
+     LUT             35/5280         <1% used
+     REG             13/5280         <1% used
+   PIO               14/56           25% used
+                     14/36           38% bonded
    IOLOGIC            2/56            3% used
    DSP                0/8             0% used
    I2C                0/2             0% used
@@ -45,35 +61,39 @@ Device utilization summary:
    OPENDRAIN          0/3             0% used
 
 Pin Constraint Summary:
-   15 out of 15 pins locked (100% locked).
+   14 out of 14 pins locked (100% locked).
 Finished Placer Phase 0 (HIER).  CPU time: 0 secs , REAL time: 0 secs 
 
 
-.................
+................
 Finished Placer Phase 0 (AP).  CPU time: 0 secs , REAL time: 0 secs 
 
 Starting Placer Phase 1. REAL time: 0 secs 
 ..  ..
 ....................
 
-Placer score = 13506.
+Placer score = 17232.
 
 Device SLICE utilization summary after final SLICE packing:
-   SLICE             23/2640         <1% used
+   SLICE             20/2640         <1% used
 
-Finished Placer Phase 1.  CPU time: 4 secs , REAL time: 4 secs 
+WARNING - par: Unable to find the instance/port 'COPI' in the constraint 'ldc_set_location -site {47} [get_ports COPI]'
+
+WARNING - par: In the constraint 'ldc_set_location -site {47} [get_ports COPI]', the locate object is not specified
+
+Finished Placer Phase 1.  CPU time: 5 secs , REAL time: 5 secs 
 
 Starting Placer Phase 2.
 .
 
-Placer score =  9795
-Finished Placer Phase 2.  CPU time: 4 secs , REAL time: 4 secs 
+Placer score =  8845
+Finished Placer Phase 2.  CPU time: 5 secs , REAL time: 5 secs 
 
 
 ------------------ Clock Report ------------------
 
 Global Clocks :
-  PRIMARY "clk" from comp "H" on site "HFOSC_R1C32", clk load = 15, ce load = 0, sr load = 0
+  PRIMARY "clk" from comp "H" on site "HFOSC_R1C32", clk load = 11, ce load = 0, sr load = 0
 
   PRIMARY  : 1 out of 8 (12%)
 
@@ -81,9 +101,9 @@ Global Clocks :
 
 
 I/O Usage Summary (final):
-   15 out of 56 (26.8%) I/O sites used.
-   15 out of 36 (41.7%) bonded I/O sites used.
-   Number of I/O comps: 15; differential: 0
+   14 out of 56 (25.0%) I/O sites used.
+   14 out of 36 (38.9%) bonded I/O sites used.
+   Number of I/O comps: 14; differential: 0
    Number of Vref pins used: 0
 
 I/O Bank Usage Summary:
@@ -92,15 +112,19 @@ I/O Bank Usage Summary:
 +----------+---------------+------------+------------+------------+
 | 0        | 0 / 14 (  0%) | OFF        |            |            |
 | 1        | 8 / 14 ( 57%) | 3.3V       |            |            |
-| 2        | 7 / 8 ( 87%)  | 3.3V       |            |            |
+| 2        | 6 / 8 ( 75%)  | 3.3V       |            |            |
 +----------+---------------+------------+------------+------------+
 
-Total Placer CPU time: 4 secs , REAL time: 4 secs 
+Total Placer CPU time: 5 secs , REAL time: 5 secs 
 
 Writing design to file SPI_impl_1_par.dir/5_1.udb ...
 
+WARNING - par: Unable to find the instance/port 'COPI' in the constraint 'ldc_set_location -site {47} [get_ports COPI]'
 
-Start NBR router at 16:03:47 05/04/21
+WARNING - par: In the constraint 'ldc_set_location -site {47} [get_ports COPI]', the locate object is not specified
+
+
+Start NBR router at 16:43:23 05/04/21
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -115,56 +139,53 @@ Note: NBR uses a different method to calculate timing slacks. The
       tool to verify your design.                                
 *****************************************************************
 
-Start NBR router at 16:03:47 05/04/21
+Start NBR router at 16:43:23 05/04/21
 
 Starting routing resource preassignment
 Preassignment Summary:
 --------------------------------------------------------------------------------
-23 connections routed with dedicated routing resources
+15 connections routed with dedicated routing resources
 1 global clock signals routed
-38 connections routed (of 195 total) (19.49%)
+26 connections routed (of 159 total) (16.35%)
 ---------------------------------------------------------
 Clock routing summary:
 Primary clocks (1 used out of 8 available):
 #4  Signal "clk"
-       Clock   loads: 15    out of    15 routed (100.00%)
+       Clock   loads: 11    out of    11 routed (100.00%)
 ---------------------------------------------------------
 --------------------------------------------------------------------------------
 Completed routing resource preassignment
 
-Start NBR section for initial routing at 16:03:48 05/04/21
+Start NBR section for initial routing at 16:43:23 05/04/21
 Level 1, iteration 1
-2(0.00%) conflicts; 150(76.92%) untouched conns; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 9.487ns/0.000ns; real time: 0 secs 
+0(0.00%) conflict; 128(80.50%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 8.407ns/0.000ns; real time: 0 secs 
 Level 2, iteration 1
-0(0.00%) conflict; 148(75.90%) untouched conns; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 9.786ns/0.000ns; real time: 0 secs 
-Level 3, iteration 1
-0(0.00%) conflict; 148(75.90%) untouched conns; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 9.786ns/0.000ns; real time: 0 secs 
+2(0.00%) conflicts; 121(76.10%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 11.389ns/0.000ns; real time: 0 secs 
 Level 4, iteration 1
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 8.358ns/0.000ns; real time: 0 secs 
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 9.826ns/0.000ns; real time: 0 secs 
 
 Info: Initial congestion level at 75% usage is 0
 Info: Initial congestion area  at 75% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 16:03:48 05/04/21
+Start NBR section for normal routing at 16:43:23 05/04/21
 Level 4, iteration 1
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 8.358ns/0.000ns; real time: 0 secs 
+Estimated worst slack/total negative slack<setup>: 9.826ns/0.000ns; real time: 0 secs 
 
-Start NBR section for setup/hold timing optimization with effort level 3 at 16:03:48 05/04/21
+Start NBR section for setup/hold timing optimization with effort level 3 at 16:43:23 05/04/21
 
 Starting full timing analysis...
 Info: Change speed grade from M to 6
 
-Start NBR section for re-routing at 16:03:48 05/04/21
+Start NBR section for re-routing at 16:43:24 05/04/21
 Level 4, iteration 1
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 9.088ns/0.000ns; real time: 0 secs 
+Estimated worst slack/total negative slack<setup>: 9.826ns/0.000ns; real time: 0 secs 
 
-Start NBR section for post-routing at 16:03:48 05/04/21
+Start NBR section for post-routing at 16:43:24 05/04/21
 
 End NBR router with 0 unrouted connection
 
@@ -172,7 +193,7 @@ NBR Summary
 -----------
   Number of unrouted connections : 0 (0.00%)
   Number of connections with timing violations : 0 (0.00%)
-  Estimated worst slack<setup> : 9.088ns
+  Estimated worst slack<setup> : 9.826ns
   Timing score<setup> : 0
 -----------
 Notes: The timing info is calculated for SETUP only.
@@ -182,9 +203,9 @@ Notes: The timing info is calculated for SETUP only.
 Starting full timing analysis...
 Info: Change speed grade from M to 6
 Total CPU time 1 secs 
-Total REAL time: 2 secs 
+Total REAL time: 0 secs 
 Completely routed.
-End of route.  195 routed (100.00%); 0 unrouted.
+End of route.  159 routed (100.00%); 0 unrouted.
 
 Writing design to file SPI_impl_1_par.dir/5_1.udb ...
 
@@ -194,7 +215,7 @@ All signals are completely routed.
 
 PAR_SUMMARY::Run status = Completed
 PAR_SUMMARY::Number of unrouted conns = 0
-PAR_SUMMARY::Worst  slack<setup/<ns>> = 9.088
+PAR_SUMMARY::Worst  slack<setup/<ns>> = 9.826
 PAR_SUMMARY::Timing score<setup/<ns>> = 0.000
 PAR_SUMMARY::Worst  slack<hold /<ns>> = 1.719
 PAR_SUMMARY::Timing score<hold /<ns>> = 0.000

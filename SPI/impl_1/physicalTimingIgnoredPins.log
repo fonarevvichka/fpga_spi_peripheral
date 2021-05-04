@@ -1,3 +1,7 @@
-SLICE/F0 VCC  SLICE_35
+SLICE/F0 VCC  SLICE_25
      *** H/CLKHFPU is driven by constant or a pin on an incomplete path
      *** H/CLKHFEN is driven by constant or a pin on an incomplete path
+SLICE/F0 GND  SLICE_31
+     *** led_array_pad[5].bb_inst/PADDO is driven by constant or a pin on an incomplete path
+     *** led_array_pad[7].bb_inst/PADDO is driven by constant or a pin on an incomplete path
+     *** led_array_pad[6].bb_inst/PADDO is driven by constant or a pin on an incomplete path

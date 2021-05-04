@@ -42,9 +42,8 @@ architecture synth of peripheral is
 
 begin
     read_spi	<= controller_clk_last and (not controller_clk_last_last); -- clock crossing SPI edge detection
-    led_array	<= byte_shiftreg;
-    -- data_ready	<= byte_counter(4);
-    --data_ready	<= '1' when (byte_counter = "01111") else '0';
+    -- led_array	<= byte_shiftreg;
+    led_array	<=  "000" & std_logic_vector(byte_counter);
 	led			<= '1' when (s = READ) else '0';
 
     process (clk) begin
@@ -72,7 +71,7 @@ begin
                                 byte_counter	<= byte_counter + 1;
                             end if;	
 
-                            if (byte_counter = "01111") then
+                            if (byte_counter = "11111") then -- this is casuing problems
                                 s <= WRITE;
                             end if;
 							
@@ -83,7 +82,7 @@ begin
                                 byte_counter	<= byte_counter - 1;
                             end if;
 							
-							if (byte_counter = 4d"0") then -- transmitted all data back
+							if (byte_counter = 5d"0") then -- transmitted all data back
 								s	<= IDLE;
 							end if;
 							
@@ -92,7 +91,7 @@ begin
                 end if;
             else
                 bit_counter <= 4d"0";
-                byte_shiftreg	<= 8d"0";
+				byte_shiftreg	<= 8d"0";
             end if;
         end if;
     end process;

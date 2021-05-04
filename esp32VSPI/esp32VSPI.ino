@@ -22,7 +22,7 @@ void loop() {
     digitalWrite(5, LOW);
     Serial.println(i);
     Serial.print("response: "); Serial.println(vspi.transfer(i));
-    delay(500);
+    delay(250);
     digitalWrite(5, HIGH);  
     vspi.endTransaction();
   }
@@ -38,7 +38,7 @@ void loop() {
     digitalWrite(5, LOW);
     Serial.println(i);
     Serial.print("response: "); Serial.println(vspi.transfer(0));
-    delay(500);
+    delay(250);
     digitalWrite(5, HIGH);  
     vspi.endTransaction();
   }

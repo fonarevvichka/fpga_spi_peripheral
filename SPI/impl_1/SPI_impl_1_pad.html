@@ -48,14 +48,13 @@ Performance Grade:      High-Performance_1.2V
 PACKAGE:          SG48
 Package Status:                     Preliminary    Version 1.5
 
-Tue May  4 16:03:47 2021
+Tue May  4 16:43:23 2021
 
 Pinout by Port Name:
 +----------------+----------+--------------+-------+--------------------+
 | Port Name      | Pin/Bank | Buffer Type  | Site  | Properties         |
 +----------------+----------+--------------+-------+--------------------+
 | CIPO           | 46/2     | LVCMOS33_OUT | PL6A  | DRIVE:8mA PULL:NA  |
-| COPI           | 47/2     | LVCMOS33_IN  | PL7A  | PULL:100K          |
 | CS             | 45/2     | LVCMOS33_IN  | PL8B  | PULL:100K          |
 | controller_clk | 2/2      | LVCMOS33_IN  | PL9A  | PULL:100K          |
 | data_ready     | 12/1     | LVCMOS33_OUT | PL19A | DRIVE:8mA PULL:NA  |
@@ -120,7 +119,7 @@ Vccio by Bank:
 | 44/2     | led_array[1]        | LOCATED    | LVCMOS33_OUT | PL7B  | PCLKT2_0         |
 | 45/2     | CS                  | LOCATED    | LVCMOS33_IN  | PL8B  |                  |
 | 46/2     | CIPO                | LOCATED    | LVCMOS33_OUT | PL6A  |                  |
-| 47/2     | COPI                | LOCATED    | LVCMOS33_IN  | PL7A  |                  |
+| 47/2     |     unused, PULL:UP |            |              | PL7A  |                  |
 | 48/2     | reset               | LOCATED    | LVCMOS33_IN  | PL8A  |                  |
 | PL6B/2   |     unused, PULL:UP |            |              | PL6B  |                  |
 | PL9B/2   |     unused, PULL:UP |            |              | PL9B  |                  |
@@ -145,7 +144,6 @@ Vccio by Bank:
 Locate Constraints for each Pin: 
 
 ldc_set_location -site {46} [ get_ports {CIPO} ]
-ldc_set_location -site {47} [ get_ports {COPI} ]
 ldc_set_location -site {45} [ get_ports {CS} ]
 ldc_set_location -site {2} [ get_ports {controller_clk} ]
 ldc_set_location -site {12} [ get_ports {data_ready} ]
@@ -165,7 +163,7 @@ ldc_set_location -site {48} [ get_ports {reset} ]
 
 
 Copyright 2015 Lattice Semiconductor Corporation, All Rights Reserved
-Tue May  4 16:03:47 2021
+Tue May  4 16:43:23 2021
 
 
 
