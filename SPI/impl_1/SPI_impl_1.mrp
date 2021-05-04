@@ -1,0 +1,207 @@
+          Lattice Mapping Report File for Design Module 'SPI_impl_1'
+
+Target Vendor:        LATTICE
+Target Device:        iCE40UP5KSG48
+Target Performance:   High-Performance_1.2V
+
+Mapper:    version Radiant Software (64-bit) 2.2.1.239.2
+Mapped on: Tue May  4 15:19:51 2021
+
+Design Information
+------------------
+
+Command line:   map SPI_impl_1_syn.udb C:/Users/fonar/Documents/CS
+     Remote/es4/SPI/SPI/source/impl_1/impl_1.pdc -o SPI_impl_1_map.udb -mp
+     SPI_impl_1.mrp -hierrpt -gui
+
+Design Summary
+--------------
+
+   Number of slice registers:  18 out of  5280 (<1%)
+   Number of I/O registers:      2 out of   117 (2%)
+   Number of LUT4s:            26 out of  5280 (<1%)
+      Number of logic LUT4s:              25
+      Number of inserted feedthru LUT4s:   1
+      Number of ripple logic:              0 (0 LUT4s)
+   Number of IO sites used:   14 out of 39 (36%)
+      Number of IO sites used for general PIOs: 14
+      Number of IO sites used for I3Cs: 0 out of 2 (0%)
+      Number of IO sites used for PIOs+I3Cs: 14 out of 36 (39%)
+      (note: If I3C is not used, its site can be used as general PIO)
+      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
+   Number of DSPs:             0 out of 8 (0%)
+   Number of I2Cs:             0 out of 2 (0%)
+   Number of High Speed OSCs:  1 out of 1 (100%)
+   Number of Low Speed OSCs:   0 out of 1 (0%)
+   Number of RGB PWM:          0 out of 1 (0%)
+   Number of RGB Drivers:      0 out of 1 (0%)
+   Number of SCL FILTERs:      0 out of 2 (0%)
+   Number of SRAMs:            0 out of 4 (0%)
+   Number of WARMBOOTs:        0 out of 1 (0%)
+   Number of SPIs:             0 out of 2 (0%)
+   Number of EBRs:             0 out of 30 (0%)
+   Number of PLLs:             0 out of 1 (0%)
+   Number of Clocks:  1
+      Net clk: 20 loads, 20 rising, 0 falling (Driver: Pin H/CLKHF)
+   Number of Clock Enables:  5
+      Net VCC_net: 1 loads, 0 SLICEs
+      Net n286: 11 loads, 11 SLICEs
+      Net clk_enable_1: 2 loads, 1 SLICEs
+      Net n145: 5 loads, 5 SLICEs
+      Net clk_enable_2: 1 loads, 0 SLICEs
+   Number of LSRs:  1
+      Pin reset: 17 loads, 17 SLICEs (Net: reset_c)
+   Top 10 highest fanout non-clock nets:
+      Net reset_c: 19 loads
+      Net CS_c: 15 loads
+      Net n286: 11 loads
+      Net bit_counter[3]: 5 loads
+      Net controller_clk_last: 5 loads
+      Net n145: 5 loads
+      Net n440: 5 loads
+      Net controller_clk_last_last: 4 loads
+
+                                    Page 1
+
+
+
+
+
+Design Summary (cont)
+---------------------
+      Net n4: 4 loads
+      Net n5: 4 loads
+
+
+
+
+   Number of warnings:  0
+   Number of errors:    0
+
+Design Errors/Warnings
+----------------------
+
+   No errors or warnings present.
+
+IO (PIO) Attributes
+-------------------
+
++---------------------+-----------+-----------+-------+-------+-----------+
+| IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
+|                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
++---------------------+-----------+-----------+-------+-------+-----------+
+| led_array[7]        | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| led_array[6]        | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| led_array[5]        | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| led_array[4]        | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| led_array[3]        | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| led_array[2]        | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| led_array[1]        | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| led_array[0]        | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| CIPO                | OUTPUT    | LVCMOS33  | O     |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| data_ready          | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| reset               | INPUT     | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| controller_clk      | INPUT     | LVCMOS33  | I     |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| COPI                | INPUT     | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| CS                  | INPUT     | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+
+Removed logic
+-------------
+
+Block i338 was optimized away.
+
+
+
+
+                                    Page 2
+
+
+
+
+
+OSC Summary
+-----------
+
+OSC 1:                                 Pin/Node Value
+  OSC Instance Name:                            H
+  Power UP:                            NODE     VCC_net
+  Enable Signal:                       NODE     VCC_net
+  OSC Output:                          NODE     clk
+  DIV Setting:                                  00
+
+ASIC Components
+---------------
+
+Instance Name: controller_clk_last_c
+         Type: IOLOGIC
+Instance Name: H
+         Type: HFOSC
+Instance Name: CIPO_i0
+         Type: IOLOGIC
+
+Run Time and Memory Usage
+-------------------------
+
+   Total CPU Time: 0 secs
+   Total REAL Time: 0 secs
+   Peak Memory Usage: 50 MB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    Page 3
+
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995
+     AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent
+     Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems
+     All rights reserved.
+Copyright (c) 2002-2020 Lattice Semiconductor
+     Corporation,  All rights reserved.

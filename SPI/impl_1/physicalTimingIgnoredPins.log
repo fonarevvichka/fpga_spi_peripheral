@@ -1,0 +1,3 @@
+SLICE/F0 VCC  SLICE_22
+     *** H/CLKHFPU is driven by constant or a pin on an incomplete path
+     *** H/CLKHFEN is driven by constant or a pin on an incomplete path
