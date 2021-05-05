@@ -16,28 +16,30 @@ void setup() {
   Serial.begin(115200);}
 
 void loop() {
+  Serial.println("Write cycle");
   digitalWrite(22, LOW);
+  
   for (byte i = 0; i < 16; i++) {
     vspi.beginTransaction(settings);
     digitalWrite(5, LOW);
-    Serial.println(i);
-    Serial.print("response: "); Serial.println(vspi.transfer(i));
+    Serial.print("Sending Byte: ");Serial.print(i); Serial.print(" Response Byte: "); Serial.println(vspi.transfer(i));
     delay(250);
     digitalWrite(5, HIGH);  
     vspi.endTransaction();
   }
-  delay(500);
+  
 
   while(digitalRead(dataReadyPin) == LOW) {
     delay(10);
   }
   
-  Serial.println("recieved signal");
+  Serial.println("recieved data ready signal");
+
+  Serial.println("Read cycle");
   for (byte i = 0; i < 16; i++) {
     vspi.beginTransaction(settings);
     digitalWrite(5, LOW);
-    Serial.println(i);
-    Serial.print("response: "); Serial.println(vspi.transfer(0));
+    Serial.print("Sending Byte: ");Serial.print(0); Serial.print(" Response Byte: "); Serial.println(vspi.transfer(0));
     delay(250);
     digitalWrite(5, HIGH);  
     vspi.endTransaction();
