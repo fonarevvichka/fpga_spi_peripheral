@@ -23,7 +23,7 @@ void loop() {
     vspi.beginTransaction(settings);
     digitalWrite(5, LOW);
     Serial.print("Sending Byte: ");Serial.print(i); Serial.print(" Response Byte: "); Serial.println(vspi.transfer(i));
-    delay(250);
+    delay(10);
     digitalWrite(5, HIGH);  
     vspi.endTransaction();
   }
@@ -40,7 +40,7 @@ void loop() {
     vspi.beginTransaction(settings);
     digitalWrite(5, LOW);
     Serial.print("Sending Byte: ");Serial.print(0); Serial.print(" Response Byte: "); Serial.println(vspi.transfer(0));
-    delay(250);
+    delay(10);
     digitalWrite(5, HIGH);  
     vspi.endTransaction();
   }
