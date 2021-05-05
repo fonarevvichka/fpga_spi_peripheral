@@ -11,10 +11,11 @@ for now) it sends the singal and the controller triggers another 16 SPI cycles a
 back 16 bytes (in this demo the bytes are the same as the ones that were sent).
 
 ### Clock Speeds:
-    This should work at many clock speeds as there are no complex timing issues
-    and crossing the clock domain is handled by a synchronoizer. However, this
-    example was most tested with the FPGA running @ 48Mhz using the internal
-    oscilator and the SPI clock was set to 10MHz.
+This should work at many clock speeds as there are no complex timing issues
+and crossing the clock domain is handled by a synchronoizer. However, this
+example was most tested with the FPGA running @ 48Mhz using the internal
+oscilator and the SPI clock was set to 10MHz.
+
 ### Sample Communication Cycle
 (Taken from serial monitor)
 
