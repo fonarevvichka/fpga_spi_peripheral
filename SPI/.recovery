@@ -9,9 +9,6 @@
         <Source name="source/impl_1.xcf" type="Programming Project File" type_short="Programming">
             <Options/>
         </Source>
-        <Source name="source/impl_1/impl_1.ldc" type="LSE Design Constraints File" type_short="LDC">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/impl_1.pdc" type="Physical Constraints File" type_short="PDC">
             <Options/>
         </Source>
